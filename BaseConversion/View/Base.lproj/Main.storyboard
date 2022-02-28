@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1ZI-gP-gTB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1ZI-gP-gTB">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -512,24 +512,24 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Base10TextField" destination="xSE-SL-Ve8" id="eNf-9s-xDp"/>
-                        <outlet property="Base16TextField" destination="YzG-18-W7Y" id="kN4-Gm-8qP"/>
-                        <outlet property="Base2TextField" destination="dEp-0I-UBz" id="e7k-ca-rpF"/>
-                        <outlet property="Base8TextField" destination="vnk-Hm-ZEr" id="XuI-3H-WYp"/>
-                        <outlet property="base10Button" destination="g82-Ih-fck" id="XtX-Fq-uQd"/>
-                        <outlet property="base16Button" destination="EMJ-yN-qRd" id="MOG-Ta-yP9"/>
-                        <outlet property="base2Button" destination="k6o-fY-y2I" id="YgQ-HX-D2B"/>
-                        <outlet property="base8Button" destination="IeA-xL-UKG" id="QTm-GG-nlC"/>
-                        <outlet property="copy10Button" destination="HKC-U3-A1Z" id="VI6-cr-16X"/>
-                        <outlet property="copy16Button" destination="rK5-u8-BTe" id="t9k-c7-9wh"/>
-                        <outlet property="copy2Button" destination="s7G-fU-aMm" id="4HR-eg-FyN"/>
-                        <outlet property="copy8Button" destination="e48-RG-aMF" id="Vub-h0-fyE"/>
-                        <outlet property="copyOkText10" destination="xHH-6r-Wp1" id="dT7-7S-8ew"/>
-                        <outlet property="copyOkText16" destination="FGo-kt-8hk" id="qK4-d1-egB"/>
-                        <outlet property="copyOkText2" destination="aE8-1e-pPg" id="kfV-Q6-MUD"/>
-                        <outlet property="copyOkText8" destination="iXX-PX-Zfc" id="AoD-Wb-lBn"/>
                         <outlet property="modeChangeButton" destination="Wd5-4e-L1m" id="peh-XB-UC5"/>
                         <outlet property="wrongMessage" destination="XEd-Qc-0sW" id="zwm-3b-HPE"/>
+                        <outletCollection property="copyClearTextLabel" destination="aE8-1e-pPg" collectionClass="NSMutableArray" id="vsn-LM-eS0"/>
+                        <outletCollection property="copyClearTextLabel" destination="iXX-PX-Zfc" collectionClass="NSMutableArray" id="BAr-CI-NQA"/>
+                        <outletCollection property="copyClearTextLabel" destination="xHH-6r-Wp1" collectionClass="NSMutableArray" id="sNS-uh-4Dh"/>
+                        <outletCollection property="copyClearTextLabel" destination="FGo-kt-8hk" collectionClass="NSMutableArray" id="JBh-KV-ewc"/>
+                        <outletCollection property="conversionButton" destination="k6o-fY-y2I" collectionClass="NSMutableArray" id="Szq-sG-BFx"/>
+                        <outletCollection property="conversionButton" destination="IeA-xL-UKG" collectionClass="NSMutableArray" id="srj-q0-9Xb"/>
+                        <outletCollection property="conversionButton" destination="g82-Ih-fck" collectionClass="NSMutableArray" id="NUL-He-bOk"/>
+                        <outletCollection property="conversionButton" destination="EMJ-yN-qRd" collectionClass="NSMutableArray" id="TTf-HG-wPi"/>
+                        <outletCollection property="copyButton" destination="s7G-fU-aMm" collectionClass="NSMutableArray" id="45E-z8-gY1"/>
+                        <outletCollection property="copyButton" destination="e48-RG-aMF" collectionClass="NSMutableArray" id="1xY-Vr-j0T"/>
+                        <outletCollection property="copyButton" destination="HKC-U3-A1Z" collectionClass="NSMutableArray" id="DRN-5X-oo5"/>
+                        <outletCollection property="copyButton" destination="rK5-u8-BTe" collectionClass="NSMutableArray" id="nMk-K0-KtK"/>
+                        <outletCollection property="inputNumberTextField" destination="dEp-0I-UBz" collectionClass="NSMutableArray" id="5xx-DO-ZCC"/>
+                        <outletCollection property="inputNumberTextField" destination="vnk-Hm-ZEr" collectionClass="NSMutableArray" id="TiK-Ch-SMz"/>
+                        <outletCollection property="inputNumberTextField" destination="xSE-SL-Ve8" collectionClass="NSMutableArray" id="Nnb-yn-itD"/>
+                        <outletCollection property="inputNumberTextField" destination="YzG-18-W7Y" collectionClass="NSMutableArray" id="JIv-7W-e2F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vWn-kP-tXG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
