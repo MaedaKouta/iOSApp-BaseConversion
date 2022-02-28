@@ -204,7 +204,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="base2Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="HXr-FD-SeF"/>
+                                    <action selector="didTapConvert2Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="ZmD-UN-nzg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IeA-xL-UKG">
@@ -218,7 +218,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="base8Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="p27-Yy-2Oh"/>
+                                    <action selector="didTapConvert8Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="hP7-5O-Dan"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g82-Ih-fck">
@@ -232,7 +232,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="base10Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="aNI-oe-G8s"/>
+                                    <action selector="didTapConvert10Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="0aa-25-gDm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMJ-yN-qRd">
@@ -246,7 +246,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="base16Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="GKL-ex-iPk"/>
+                                    <action selector="didTapConvert16Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="3Hm-pY-055"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vnk-Hm-ZEr">
@@ -320,7 +320,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="doc.on.doc.fill" catalog="system"/>
                                 <connections>
-                                    <action selector="copy2num:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="hGC-ZZ-hPe"/>
+                                    <action selector="didTapCopy2Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="QTo-f6-hf1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e48-RG-aMF">
@@ -334,7 +334,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="doc.on.doc.fill" catalog="system"/>
                                 <connections>
-                                    <action selector="copy8num:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="lAr-GW-7IG"/>
+                                    <action selector="didTapCopy8Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="ku2-Ds-Fxa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKC-U3-A1Z">
@@ -348,7 +348,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="doc.on.doc.fill" catalog="system"/>
                                 <connections>
-                                    <action selector="copy10num:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="CFR-bc-67e"/>
+                                    <action selector="didTapCopy10Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="aed-40-gMS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rK5-u8-BTe">
@@ -362,7 +362,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="doc.on.doc.fill" catalog="system"/>
                                 <connections>
-                                    <action selector="copy16num:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="VLG-DU-E2S"/>
+                                    <action selector="didTapCopy16Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="WPh-RZ-SpJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wd5-4e-L1m">

@@ -30,31 +30,31 @@ class SimpleViewController: UIViewController {
     }
 
     //変換
-    @IBAction private func base2Button(_ sender: Any) {
+    @IBAction private func didTapConvert2Button(_ sender: Any) {
         TransitionOutput(index: 0)
     }
-    @IBAction private func base8Button(_ sender: Any) {
+    @IBAction private func didTapConvert8Button(_ sender: Any) {
         TransitionOutput(index: 1)
     }
-    @IBAction private func base10Button(_ sender: Any) {
+    @IBAction private func didTapConvert10Button(_ sender: Any) {
         TransitionOutput(index: 2)
     }
-    @IBAction private func base16Button(_ sender: Any) {
+    @IBAction private func didTapConvert16Button(_ sender: Any) {
         TransitionOutput(index: 3)
     }
 
     //クリップボードにコピー
-    @IBAction func copy2num(_ sender: Any) {
+    @IBAction func didTapCopy2Button(_ sender: Any) {
         copyText(index: 0)
     }
-    @IBAction func copy8num(_ sender: Any) {
-        copyText(index: 0)
+    @IBAction func didTapCopy8Button(_ sender: Any) {
+        copyText(index: 1)
     }
-    @IBAction func copy10num(_ sender: Any) {
-        copyText(index: 0)
+    @IBAction func didTapCopy10Button(_ sender: Any) {
+        copyText(index: 2)
     }
-    @IBAction func copy16num(_ sender: Any) {
-        copyText(index: 0)
+    @IBAction func didTapCopy16Button(_ sender: Any) {
+        copyText(index: 3)
     }
 
     func TransitionOutput(index: Int) {
