@@ -33,75 +33,37 @@ class SimpleViewController: UIViewController {
     @IBAction private func base2Button(_ sender: Any) {
         TransitionOutput(index: 0)
     }
-
     @IBAction private func base8Button(_ sender: Any) {
         TransitionOutput(index: 1)
     }
-
     @IBAction private func base10Button(_ sender: Any) {
         TransitionOutput(index: 2)
     }
-
     @IBAction private func base16Button(_ sender: Any) {
         TransitionOutput(index: 3)
     }
 
     //クリップボードにコピー
     @IBAction func copy2num(_ sender: Any) {
-        if(!inputNumberTextField[0].text!.isEmpty){
-            UIPasteboard.general.string = inputNumberTextField[0].text!
-            copyClearTextLabel[0].fadeTransition(0.5)
-            copyClearTextLabel[0].text = "クリップボードにコピーしました"
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                self.copyClearTextLabel[0].fadeTransition(0.5)
-                self.copyClearTextLabel[0].text = ""
-            }
-        }
+        copyText(index: 0)
     }
-
     @IBAction func copy8num(_ sender: Any) {
-        if(!inputNumberTextField[1].text!.isEmpty){
-            UIPasteboard.general.string = inputNumberTextField[1].text!
-            copyClearTextLabel[1].fadeTransition(0.5)
-            copyClearTextLabel[1].text = "クリップボードにコピーしました"
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){
-                self.copyClearTextLabel[1].fadeTransition(0.5)
-                self.copyClearTextLabel[1].text = ""
-            }
-        }
+        copyText(index: 0)
     }
-
     @IBAction func copy10num(_ sender: Any) {
-        if(!inputNumberTextField[2].text!.isEmpty){
-            UIPasteboard.general.string = inputNumberTextField[2].text!
-            copyClearTextLabel[2].fadeTransition(0.5)
-            copyClearTextLabel[2].text = "クリップボードにコピーしました"
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                self.copyClearTextLabel[2].fadeTransition(0.5)
-                self.copyClearTextLabel[2].text = ""
-            }
-        }
+        copyText(index: 0)
     }
-
     @IBAction func copy16num(_ sender: Any) {
-        if(!inputNumberTextField[3].text!.isEmpty){
-            UIPasteboard.general.string = inputNumberTextField[3].text!
-            copyClearTextLabel[3].fadeTransition(0.5)
-            copyClearTextLabel[3].text = "クリップボードにコピーしました"
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                self.copyClearTextLabel[3].fadeTransition(0.5)
-                self.copyClearTextLabel[3].text = ""
-            }
-        }
+        copyText(index: 0)
     }
 
     func TransitionOutput(index: Int) {
         let targetBases = [2, 8, 10, 18]
         let targetBase = targetBases[index]
-        
+
         wrongMessage.fadeTransition(0.3)
         wrongMessage.text = ""
-    
+
         if inputNumberTextField[index].text?.isEmpty == false {
             do {
                 try resultNumberStringArray = transition.transitionSimpleMode(fromBase: targetBase, beforeNumber: inputNumberTextField[index].text!)
@@ -121,6 +83,19 @@ class SimpleViewController: UIViewController {
         }
     }
 
+    func copyText(index: Int){
+        if inputNumberTextField[index].text?.isEmpty == false {
+            UIPasteboard.general.string = inputNumberTextField[index].text ?? ""
+            copyClearTextLabel[index].fadeTransition(0.5)
+            copyClearTextLabel[index].text = "クリップボードにコピーしました"
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                self.copyClearTextLabel[index].fadeTransition(0.5)
+                self.copyClearTextLabel[index].text = ""
+            }
+        }
+    }
+
     //キーボードを閉じる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.view.endEditing(true)
@@ -132,7 +107,6 @@ class SimpleViewController: UIViewController {
                 nextView.modalPresentationStyle = .fullScreen
                 self.present(nextView, animated: true, completion: nil)
     }
-    
 }
 
 //TextFieldのデザインを整える
@@ -149,9 +123,6 @@ extension UITextField {
         // 枠線を最前面に
         bringSubviewToFront(underline)
     }
-    
-    
-    
 }
 
 //テキストアニメーション
