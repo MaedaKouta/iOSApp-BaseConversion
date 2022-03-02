@@ -4,7 +4,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -193,62 +195,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6o-fY-y2I">
-                                <rect key="frame" x="237" y="161" width="60" height="38"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="UeG-2W-e28"/>
-                                    <constraint firstAttribute="width" constant="60" id="buL-2J-z7T"/>
-                                </constraints>
-                                <state key="normal" title="変換">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapConvert2Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="ZmD-UN-nzg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IeA-xL-UKG">
-                                <rect key="frame" x="237" y="230" width="60" height="38"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="99P-Ea-aXj"/>
-                                    <constraint firstAttribute="height" constant="38" id="edD-mz-7xa"/>
-                                </constraints>
-                                <state key="normal" title="変換">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapConvert8Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="hP7-5O-Dan"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g82-Ih-fck">
-                                <rect key="frame" x="237" y="302" width="60" height="38"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="VEY-4d-oTV"/>
-                                    <constraint firstAttribute="height" constant="38" id="hGe-FU-4zX"/>
-                                </constraints>
-                                <state key="normal" title="変換">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapConvert10Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="0aa-25-gDm"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMJ-yN-qRd">
-                                <rect key="frame" x="237" y="374" width="60" height="38"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="LGu-eP-GJd"/>
-                                    <constraint firstAttribute="height" constant="38" id="bse-L6-POP"/>
-                                </constraints>
-                                <state key="normal" title="変換">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapConvert16Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="3Hm-pY-055"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vnk-Hm-ZEr">
                                 <rect key="frame" x="48" y="234" width="177" height="34"/>
                                 <constraints>
@@ -309,77 +255,7 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7G-fU-aMm">
-                                <rect key="frame" x="303" y="161" width="32" height="38"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="Z4f-fT-Rp6"/>
-                                    <constraint firstAttribute="height" constant="38" id="trz-lo-3j4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="doc.on.doc.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="didTapCopy2Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="QTo-f6-hf1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e48-RG-aMF">
-                                <rect key="frame" x="303" y="229" width="32" height="38"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="6kY-Zx-Ca1"/>
-                                    <constraint firstAttribute="height" constant="38" id="a3x-4Z-hlz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="doc.on.doc.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="didTapCopy8Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="ku2-Ds-Fxa"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKC-U3-A1Z">
-                                <rect key="frame" x="303" y="301" width="32" height="38"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="Mee-50-BaN"/>
-                                    <constraint firstAttribute="width" constant="32" id="Z9V-lu-4cE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="doc.on.doc.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="didTapCopy10Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="aed-40-gMS"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rK5-u8-BTe">
-                                <rect key="frame" x="303" y="374" width="32" height="38"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="maB-wE-bgr"/>
-                                    <constraint firstAttribute="height" constant="38" id="rPK-2g-1bz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="doc.on.doc.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="didTapCopy16Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="WPh-RZ-SpJ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wd5-4e-L1m">
-                                <rect key="frame" x="268" y="98" width="102" height="32"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Wd5-4e-L1m" secondAttribute="height" multiplier="51:16" id="2TM-qZ-dca"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title=" モード切替 ">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="modeChange:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="hwE-Ye-tmT"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXX-PX-Zfc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXX-PX-Zfc">
                                 <rect key="frame" x="115" y="268" width="245" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="1Xh-PN-icP"/>
@@ -389,7 +265,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aE8-1e-pPg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aE8-1e-pPg">
                                 <rect key="frame" x="115" y="199" width="245" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="245" id="8VK-AK-F35"/>
@@ -448,7 +324,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHH-6r-Wp1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHH-6r-Wp1">
                                 <rect key="frame" x="115" y="339" width="245" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="MEa-dp-PNo"/>
@@ -458,74 +334,156 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYN-xR-kEE">
+                                <rect key="frame" x="245" y="164" width="67" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="変換">
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                    <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapConvert2Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="ek5-HR-ZdX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udg-Vr-EtL">
+                                <rect key="frame" x="245" y="233" width="67" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="変換">
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                    <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapConvert8Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="Kmw-Iv-ywV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0j-if-YBj">
+                                <rect key="frame" x="245" y="306" width="67" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="変換">
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                    <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapConvert10Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="r5V-EU-Mh0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zg-c8-xDs">
+                                <rect key="frame" x="245" y="379" width="67" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="変換">
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                    <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapConvert16Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="7Fl-dT-Ge8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Df1-Qi-UY4">
+                                <rect key="frame" x="320" y="164" width="33" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="">
+                                    <imageReference key="image" image="doc.on.doc.fill" catalog="system" symbolScale="default"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                    <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapCopy2Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="KNV-gt-m5L"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xuo-4t-TN7">
+                                <rect key="frame" x="320" y="233" width="33" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="">
+                                    <imageReference key="image" image="doc.on.doc.fill" catalog="system" symbolScale="default"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                    <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapCopy8Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="xBy-m3-bha"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUU-QL-hWv">
+                                <rect key="frame" x="320" y="306" width="33" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="">
+                                    <imageReference key="image" image="doc.on.doc.fill" catalog="system" symbolScale="default"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                    <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapCopy10Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="ddK-RN-aWw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLY-jh-peR">
+                                <rect key="frame" x="320" y="379" width="33" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="">
+                                    <imageReference key="image" image="doc.on.doc.fill" catalog="system" symbolScale="default"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                    <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapCopy16Button:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="dLu-eW-khg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5M-3H-W03">
+                                <rect key="frame" x="222" y="101" width="138" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="モード切替">
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                    <color key="baseBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="modeChange:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="yeg-hi-Pb6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xGE-8K-RVS"/>
                         <color key="backgroundColor" red="0.019932234109999999" green="0.0" blue="0.13403566920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xGE-8K-RVS" firstAttribute="trailing" secondItem="4qG-3o-AM0" secondAttribute="trailing" constant="16" id="0g5-1z-93b"/>
-                            <constraint firstItem="Wd5-4e-L1m" firstAttribute="top" secondItem="4qG-3o-AM0" secondAttribute="bottom" constant="8" id="1Wz-2c-6oi"/>
                             <constraint firstItem="dEp-0I-UBz" firstAttribute="top" secondItem="4qG-3o-AM0" secondAttribute="bottom" constant="75" id="1gV-bG-RHq"/>
-                            <constraint firstItem="iXX-PX-Zfc" firstAttribute="top" secondItem="IeA-xL-UKG" secondAttribute="bottom" id="353-hA-Zaj"/>
-                            <constraint firstItem="g82-Ih-fck" firstAttribute="top" secondItem="IeA-xL-UKG" secondAttribute="bottom" constant="34" id="3PU-bH-Tcd"/>
-                            <constraint firstItem="HKC-U3-A1Z" firstAttribute="top" secondItem="e48-RG-aMF" secondAttribute="bottom" constant="34" id="3cC-Ts-8Om"/>
                             <constraint firstItem="4qG-3o-AM0" firstAttribute="leading" secondItem="xGE-8K-RVS" secondAttribute="leading" constant="16" id="3ff-u6-nwl"/>
-                            <constraint firstItem="s7G-fU-aMm" firstAttribute="leading" secondItem="k6o-fY-y2I" secondAttribute="trailing" constant="6" id="3p9-5g-lem"/>
                             <constraint firstItem="dEp-0I-UBz" firstAttribute="top" secondItem="g55-aU-DSO" secondAttribute="bottom" id="4Yd-fy-1zm"/>
-                            <constraint firstItem="e48-RG-aMF" firstAttribute="leading" secondItem="IeA-xL-UKG" secondAttribute="trailing" constant="6" id="7Wj-iw-sPL"/>
-                            <constraint firstItem="EMJ-yN-qRd" firstAttribute="top" secondItem="g82-Ih-fck" secondAttribute="bottom" constant="34" id="7wQ-7w-TS9"/>
                             <constraint firstItem="xGE-8K-RVS" firstAttribute="trailing" secondItem="aE8-1e-pPg" secondAttribute="trailing" constant="30" id="Bzn-dG-vnk"/>
-                            <constraint firstItem="rK5-u8-BTe" firstAttribute="top" secondItem="HKC-U3-A1Z" secondAttribute="bottom" constant="35" id="CC6-cI-n8d"/>
-                            <constraint firstItem="k6o-fY-y2I" firstAttribute="top" secondItem="4qG-3o-AM0" secondAttribute="bottom" constant="71" id="DI1-yS-cdG"/>
-                            <constraint firstItem="HKC-U3-A1Z" firstAttribute="leading" secondItem="g82-Ih-fck" secondAttribute="trailing" constant="6" id="DQG-qQ-ltH"/>
                             <constraint firstItem="xSE-SL-Ve8" firstAttribute="top" secondItem="vnk-Hm-ZEr" secondAttribute="bottom" constant="38" id="DWz-xh-ne8"/>
                             <constraint firstItem="g55-aU-DSO" firstAttribute="leading" secondItem="xGE-8K-RVS" secondAttribute="leading" constant="25" id="F4T-y7-AJw"/>
                             <constraint firstItem="4qG-3o-AM0" firstAttribute="top" secondItem="xGE-8K-RVS" secondAttribute="top" id="FAx-8o-2yS"/>
-                            <constraint firstItem="s7G-fU-aMm" firstAttribute="top" secondItem="4qG-3o-AM0" secondAttribute="bottom" constant="71" id="Ign-fX-rAD"/>
                             <constraint firstItem="vnk-Hm-ZEr" firstAttribute="centerX" secondItem="xHT-cU-JtQ" secondAttribute="centerX" multiplier="0.7" id="Kie-yh-0Ym"/>
-                            <constraint firstItem="rK5-u8-BTe" firstAttribute="leading" secondItem="EMJ-yN-qRd" secondAttribute="trailing" constant="6" id="Lc4-Bz-2jQ"/>
                             <constraint firstItem="FGo-kt-8hk" firstAttribute="top" secondItem="YzG-18-W7Y" secondAttribute="bottom" id="Lxn-HS-9hQ"/>
-                            <constraint firstItem="xGE-8K-RVS" firstAttribute="trailing" secondItem="Wd5-4e-L1m" secondAttribute="trailing" constant="20" id="QDy-Eu-Xv6"/>
                             <constraint firstItem="xSE-SL-Ve8" firstAttribute="top" secondItem="jDR-N9-W0F" secondAttribute="bottom" id="Qd8-4i-cXD"/>
-                            <constraint firstItem="k6o-fY-y2I" firstAttribute="leading" secondItem="dEp-0I-UBz" secondAttribute="trailing" constant="12" id="RY0-Ka-P2Q"/>
                             <constraint firstItem="XEd-Qc-0sW" firstAttribute="top" secondItem="4qG-3o-AM0" secondAttribute="bottom" constant="15" id="TRN-Rk-CEd"/>
-                            <constraint firstItem="g82-Ih-fck" firstAttribute="leading" secondItem="xSE-SL-Ve8" secondAttribute="trailing" constant="12" id="VgD-9P-Eyf"/>
                             <constraint firstItem="jDR-N9-W0F" firstAttribute="leading" secondItem="xGE-8K-RVS" secondAttribute="leading" constant="25" id="Xuw-5F-VTU"/>
                             <constraint firstItem="nDN-Hn-Qsd" firstAttribute="leading" secondItem="xGE-8K-RVS" secondAttribute="leading" constant="25" id="Y03-hG-G62"/>
                             <constraint firstItem="s2c-so-a4l" firstAttribute="leading" secondItem="xGE-8K-RVS" secondAttribute="leading" constant="25" id="a7d-Gf-OK4"/>
                             <constraint firstItem="YzG-18-W7Y" firstAttribute="top" secondItem="s2c-so-a4l" secondAttribute="bottom" id="aA9-K0-mJT"/>
-                            <constraint firstItem="e48-RG-aMF" firstAttribute="top" secondItem="s7G-fU-aMm" secondAttribute="bottom" constant="30" id="gUt-Qw-g20"/>
                             <constraint firstItem="xSE-SL-Ve8" firstAttribute="centerX" secondItem="xHT-cU-JtQ" secondAttribute="centerX" multiplier="0.7" id="iEV-bA-Kr5"/>
                             <constraint firstItem="YzG-18-W7Y" firstAttribute="centerX" secondItem="xHT-cU-JtQ" secondAttribute="centerX" multiplier="0.7" id="jnV-9l-k0X"/>
                             <constraint firstItem="xGE-8K-RVS" firstAttribute="trailing" secondItem="xHH-6r-Wp1" secondAttribute="trailing" constant="30" id="lrn-Mw-lHT"/>
                             <constraint firstItem="XEd-Qc-0sW" firstAttribute="leading" secondItem="xGE-8K-RVS" secondAttribute="leading" constant="26" id="nNK-0u-6Xd"/>
                             <constraint firstItem="vnk-Hm-ZEr" firstAttribute="top" secondItem="dEp-0I-UBz" secondAttribute="bottom" constant="35" id="oyL-bh-JZC"/>
-                            <constraint firstItem="aE8-1e-pPg" firstAttribute="top" secondItem="k6o-fY-y2I" secondAttribute="bottom" id="pAP-l3-rgc"/>
                             <constraint firstItem="dEp-0I-UBz" firstAttribute="centerX" secondItem="xHT-cU-JtQ" secondAttribute="centerX" multiplier="0.7" id="pZN-4q-z7n"/>
                             <constraint firstItem="xGE-8K-RVS" firstAttribute="trailing" secondItem="FGo-kt-8hk" secondAttribute="trailing" constant="30" id="pvF-aU-L0d"/>
                             <constraint firstItem="vnk-Hm-ZEr" firstAttribute="top" secondItem="nDN-Hn-Qsd" secondAttribute="bottom" id="rfX-9Q-m5x"/>
                             <constraint firstItem="xGE-8K-RVS" firstAttribute="trailing" secondItem="iXX-PX-Zfc" secondAttribute="trailing" constant="30" id="rnn-qB-3jo"/>
-                            <constraint firstItem="IeA-xL-UKG" firstAttribute="top" secondItem="k6o-fY-y2I" secondAttribute="bottom" constant="31" id="sDE-ic-V6z"/>
-                            <constraint firstItem="xHH-6r-Wp1" firstAttribute="top" secondItem="HKC-U3-A1Z" secondAttribute="bottom" id="sac-OB-ogK"/>
                             <constraint firstItem="YzG-18-W7Y" firstAttribute="top" secondItem="xSE-SL-Ve8" secondAttribute="bottom" constant="39" id="spT-c3-eyI"/>
-                            <constraint firstItem="IeA-xL-UKG" firstAttribute="leading" secondItem="vnk-Hm-ZEr" secondAttribute="trailing" constant="12" id="wRF-d9-1eO"/>
-                            <constraint firstItem="EMJ-yN-qRd" firstAttribute="leading" secondItem="YzG-18-W7Y" secondAttribute="trailing" constant="12" id="zf1-EL-aee"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="modeChangeButton" destination="Wd5-4e-L1m" id="peh-XB-UC5"/>
                         <outlet property="wrongMessage" destination="XEd-Qc-0sW" id="zwm-3b-HPE"/>
                         <outletCollection property="copyClearTextLabel" destination="aE8-1e-pPg" collectionClass="NSMutableArray" id="vsn-LM-eS0"/>
                         <outletCollection property="copyClearTextLabel" destination="iXX-PX-Zfc" collectionClass="NSMutableArray" id="BAr-CI-NQA"/>
                         <outletCollection property="copyClearTextLabel" destination="xHH-6r-Wp1" collectionClass="NSMutableArray" id="sNS-uh-4Dh"/>
                         <outletCollection property="copyClearTextLabel" destination="FGo-kt-8hk" collectionClass="NSMutableArray" id="JBh-KV-ewc"/>
-                        <outletCollection property="conversionButton" destination="k6o-fY-y2I" collectionClass="NSMutableArray" id="Szq-sG-BFx"/>
-                        <outletCollection property="conversionButton" destination="IeA-xL-UKG" collectionClass="NSMutableArray" id="srj-q0-9Xb"/>
-                        <outletCollection property="conversionButton" destination="g82-Ih-fck" collectionClass="NSMutableArray" id="NUL-He-bOk"/>
-                        <outletCollection property="conversionButton" destination="EMJ-yN-qRd" collectionClass="NSMutableArray" id="TTf-HG-wPi"/>
-                        <outletCollection property="copyButton" destination="s7G-fU-aMm" collectionClass="NSMutableArray" id="45E-z8-gY1"/>
-                        <outletCollection property="copyButton" destination="e48-RG-aMF" collectionClass="NSMutableArray" id="1xY-Vr-j0T"/>
-                        <outletCollection property="copyButton" destination="HKC-U3-A1Z" collectionClass="NSMutableArray" id="DRN-5X-oo5"/>
-                        <outletCollection property="copyButton" destination="rK5-u8-BTe" collectionClass="NSMutableArray" id="nMk-K0-KtK"/>
                         <outletCollection property="inputNumberTextField" destination="dEp-0I-UBz" collectionClass="NSMutableArray" id="5xx-DO-ZCC"/>
                         <outletCollection property="inputNumberTextField" destination="vnk-Hm-ZEr" collectionClass="NSMutableArray" id="TiK-Ch-SMz"/>
                         <outletCollection property="inputNumberTextField" destination="xSE-SL-Ve8" collectionClass="NSMutableArray" id="Nnb-yn-itD"/>
@@ -539,5 +497,8 @@
     </scenes>
     <resources>
         <image name="doc.on.doc.fill" catalog="system" width="116" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

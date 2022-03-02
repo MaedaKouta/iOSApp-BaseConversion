@@ -8,11 +8,8 @@
 import UIKit
 
 class SimpleViewController: UIViewController {
-    
-    @IBOutlet private weak var modeChangeButton: UIButton!
+
     @IBOutlet private var inputNumberTextField: [UITextField]!
-    @IBOutlet private var conversionButton: [UIButton]!
-    @IBOutlet private var copyButton: [UIButton]!
     @IBOutlet private var copyClearTextLabel: [UILabel]!
     @IBOutlet private weak var wrongMessage: UILabel!
 
