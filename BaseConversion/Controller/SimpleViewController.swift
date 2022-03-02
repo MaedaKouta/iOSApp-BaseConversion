@@ -21,7 +21,7 @@ class SimpleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         for textField in inputNumberTextField {
-            textField.setUnderLine2()
+            // textField.setUnderLine2()
             textField.keyboardType = UIKeyboardType.numbersAndPunctuation
         }
     }
