@@ -8,44 +8,43 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+
     @IBOutlet private weak var fromBaseTextField: UITextField!
     @IBOutlet private weak var toBaseTextField: UITextField!
     @IBOutlet private weak var beforeNumberTextField: UITextField!
     @IBOutlet private weak var afterNumberLabel: UILabel!
-    @IBOutlet private weak var conversionButton: UIButton!
+    @IBOutlet private weak var convertButton: UIButton!
     @IBOutlet private weak var copyClearLabel: UILabel!
     @IBOutlet private weak var modeChangeButton: UIButton!
     @IBOutlet private weak var wrongMessageLabel: UILabel!
 
-    var fromBase:Int!
-    var toBase:Int!
-    var beforeNum:String!
-    var result:String!
-    var copyOkText: String!
-    
+    private var fromBase:Int!
+    private var toBase:Int!
+    private var beforeNum:String!
+    private var result:String!
+    private var copyOkText: String!
+
     var transition = Transition()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //buttonの設定
-        //transformButton.sizeToFit()
-        conversionButton.layer.cornerRadius = 5
+        convertButton.layer.cornerRadius = 5
         modeChangeButton.layer.cornerRadius = 10
-        
+
         //TextFieldの設定
         fromBaseTextField.setUnderLine()
         toBaseTextField.setUnderLine()
         beforeNumberTextField.setUnderLine()
-        fromBaseTextField.attributedPlaceholder = NSAttributedString(string: "進数:変換前", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
-        toBaseTextField.attributedPlaceholder = NSAttributedString(string: "進数:変換後", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        fromBaseTextField.attributedPlaceholder = NSAttributedString(string: "変換前", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        toBaseTextField.attributedPlaceholder = NSAttributedString(string: "変換後", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         beforeNumberTextField.attributedPlaceholder = NSAttributedString(string: "変換したい値", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
-        self.fromBaseTextField.keyboardType = UIKeyboardType.numberPad
-        self.toBaseTextField.keyboardType = UIKeyboardType.numberPad
-        self.beforeNumberTextField.keyboardType = UIKeyboardType.numbersAndPunctuation
+        fromBaseTextField.keyboardType = UIKeyboardType.numberPad
+        toBaseTextField.keyboardType = UIKeyboardType.numberPad
+        beforeNumberTextField.keyboardType = UIKeyboardType.numbersAndPunctuation
     }
-    
-    @IBAction func transformButton(_ sender: Any) {
+
+    @IBAction private func didTapConvertButton(_ sender: Any) {
         wrongMessageLabel.fadeTransition(0.3)
         wrongMessageLabel.text = ""
         afterNumberLabel.text = ""
@@ -66,12 +65,12 @@ class ViewController: UIViewController {
             wrongMessageLabel.fadeTransition(0.5)
             wrongMessageLabel.text = "⚠正しい値を入力して下さい"
         }
-        
+
         afterNumberLabel.text = result
     }
 
     //クリップボードにコピー
-    @IBAction func copyButton(_ sender: Any) {
+    @IBAction private func didTapCopyButton(_ sender: Any) {
         if(result != nil){
             UIPasteboard.general.string = result
             copyClearLabel.fadeTransition(0.5)
@@ -89,7 +88,7 @@ class ViewController: UIViewController {
     }
 
     //画面遷移
-    @IBAction func modeChangeButton(_ sender: Any) {
+    @IBAction private func didTapModeChangeButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
 

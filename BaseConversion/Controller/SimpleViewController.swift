@@ -41,20 +41,20 @@ class SimpleViewController: UIViewController {
     }
 
     //クリップボードにコピー
-    @IBAction func didTapCopy2Button(_ sender: Any) {
+    @IBAction private func didTapCopy2Button(_ sender: Any) {
         copyText(index: 0)
     }
-    @IBAction func didTapCopy8Button(_ sender: Any) {
+    @IBAction private func didTapCopy8Button(_ sender: Any) {
         copyText(index: 1)
     }
-    @IBAction func didTapCopy10Button(_ sender: Any) {
+    @IBAction private func didTapCopy10Button(_ sender: Any) {
         copyText(index: 2)
     }
-    @IBAction func didTapCopy16Button(_ sender: Any) {
+    @IBAction private func didTapCopy16Button(_ sender: Any) {
         copyText(index: 3)
     }
 
-    func TransitionOutput(index: Int) {
+    private func TransitionOutput(index: Int) {
         let targetBases = [2, 8, 10, 18]
         let targetBase = targetBases[index]
 
@@ -80,7 +80,7 @@ class SimpleViewController: UIViewController {
         }
     }
 
-    func copyText(index: Int){
+    private func copyText(index: Int){
         if inputNumberTextFields[index].text?.isEmpty == false {
             UIPasteboard.general.string = inputNumberTextFields[index].text ?? ""
             copyClearTextLabels[index].fadeTransition(0.5)
@@ -99,7 +99,7 @@ class SimpleViewController: UIViewController {
     }
 
     //画面遷移
-    @IBAction func modeChange(_ sender: Any) {
+    @IBAction private func didTapModeChangeButton(_ sender: Any) {
         let nextView = storyboard?.instantiateViewController(withIdentifier: "Next") as! ViewController
                 nextView.modalPresentationStyle = .fullScreen
                 self.present(nextView, animated: true, completion: nil)
