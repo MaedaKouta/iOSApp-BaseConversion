@@ -9,9 +9,9 @@ import UIKit
 
 class SimpleViewController: UIViewController {
 
-    @IBOutlet private var inputNumberTextField: [UITextField]!
-    @IBOutlet private var copyClearTextLabel: [UILabel]!
-    @IBOutlet private weak var wrongMessage: UILabel!
+    @IBOutlet private var inputNumberTextFields: [UITextField]!
+    @IBOutlet private var copyClearTextLabels: [UILabel]!
+    @IBOutlet private weak var wrongMessageLabel: UILabel!
 
     private var resultNumberStringArray = ["", "", "", ""]
     private var array = [String]()
@@ -20,7 +20,7 @@ class SimpleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        for textField in inputNumberTextField {
+        for textField in inputNumberTextFields {
             // textField.setUnderLine2()
             textField.keyboardType = UIKeyboardType.numbersAndPunctuation
         }
@@ -58,37 +58,37 @@ class SimpleViewController: UIViewController {
         let targetBases = [2, 8, 10, 18]
         let targetBase = targetBases[index]
 
-        wrongMessage.fadeTransition(0.3)
-        wrongMessage.text = ""
+        wrongMessageLabel.fadeTransition(0.3)
+        wrongMessageLabel.text = ""
 
-        if inputNumberTextField[index].text?.isEmpty == false {
+        if inputNumberTextFields[index].text?.isEmpty == false {
             do {
-                try resultNumberStringArray = transition.transitionSimpleMode(fromBase: targetBase, beforeNumber: inputNumberTextField[index].text!)
+                try resultNumberStringArray = transition.transitionSimpleMode(fromBase: targetBase, beforeNumber: inputNumberTextFields[index].text!)
                 for i in 0 ..< resultNumberStringArray.count {
-                    inputNumberTextField[i].text = resultNumberStringArray[i]
+                    inputNumberTextFields[i].text = resultNumberStringArray[i]
                 }
             } catch {
-                UIPasteboard.general.string = wrongMessage.text!
-                wrongMessage.fadeTransition(0.5)
-                wrongMessage.text = "⚠正しい値を入力して下さい"
+                UIPasteboard.general.string = wrongMessageLabel.text!
+                wrongMessageLabel.fadeTransition(0.5)
+                wrongMessageLabel.text = "⚠正しい値を入力して下さい"
             }
 
         } else {
             for i in 0 ..< resultNumberStringArray.count {
-                inputNumberTextField[i].text = ""
+                inputNumberTextFields[i].text = ""
             }
         }
     }
 
     func copyText(index: Int){
-        if inputNumberTextField[index].text?.isEmpty == false {
-            UIPasteboard.general.string = inputNumberTextField[index].text ?? ""
-            copyClearTextLabel[index].fadeTransition(0.5)
-            copyClearTextLabel[index].text = "クリップボードにコピーしました"
+        if inputNumberTextFields[index].text?.isEmpty == false {
+            UIPasteboard.general.string = inputNumberTextFields[index].text ?? ""
+            copyClearTextLabels[index].fadeTransition(0.5)
+            copyClearTextLabels[index].text = "クリップボードにコピーしました"
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                self.copyClearTextLabel[index].fadeTransition(0.5)
-                self.copyClearTextLabel[index].text = ""
+                self.copyClearTextLabels[index].fadeTransition(0.5)
+                self.copyClearTextLabels[index].text = ""
             }
         }
     }
