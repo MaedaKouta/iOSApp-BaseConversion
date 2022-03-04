@@ -87,15 +87,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VI0-3K-wP9">
-                                <rect key="frame" x="266" y="98" width="102.66666666666669" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="モード切替"/>
-                                <connections>
-                                    <action selector="didTapModeChangeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fng-dp-vyf"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KJf-KW-GzD">
                                 <rect key="frame" x="24" y="210" width="337" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -103,6 +94,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1O-Da-A8K">
+                                <rect key="frame" x="275" y="83" width="99" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="モード切替">
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                    <color key="baseBackgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapModeChangeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Uhs-VK-Sl6"/>
+                                    <action selector="didTapModeChangeButton:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="tQy-M0-EQR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.019932234114975359" green="0.0" blue="0.13403566919191923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -121,7 +125,7 @@
                         <outlet property="convertButton" destination="orc-2F-9PN" id="Mu6-Gr-h3L"/>
                         <outlet property="copyClearLabel" destination="xmK-sb-Cud" id="Vny-DT-ppw"/>
                         <outlet property="fromBaseTextField" destination="sFy-9W-3zj" id="ZSl-XE-sPo"/>
-                        <outlet property="modeChangeButton" destination="VI0-3K-wP9" id="RWQ-J2-gHB"/>
+                        <outlet property="modeChangeButton" destination="r1O-Da-A8K" id="eH9-RV-Uvb"/>
                         <outlet property="toBaseTextField" destination="iqp-BQ-d7d" id="GHc-AB-mNl"/>
                         <outlet property="wrongMessageLabel" destination="z6S-HC-UWe" id="pma-KU-zDJ"/>
                     </connections>

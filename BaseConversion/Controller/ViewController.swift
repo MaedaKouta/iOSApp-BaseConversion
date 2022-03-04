@@ -21,8 +21,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     private let baseLists = Array(2...36)
     private var fromBase:Int!
     private var toBase:Int!
-    private var result:String!
-    private var copyOkText: String!
 
     var pickerView: UIPickerView = UIPickerView()
     var transition = Transition()
@@ -31,12 +29,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         pickerFrom()
         pickerTo()
-
-        fromBaseTextField.delegate = self
-        fromBaseTextField.tag = 1
+        pickerView.delegate = self
+        pickerView.dataSource = self
         fromBaseTextField.inputView = pickerView
-        toBaseTextField.delegate = self
-        toBaseTextField.tag = 2
         toBaseTextField.inputView = pickerView
 
         //buttonの設定
@@ -57,7 +52,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction private func didTapConvertButton(_ sender: Any) {
         dismissWrongMessage()
-        result = ""
+        var result = ""
 
         if let beforeNumString = beforeNumberTextField.text, let _ = fromBase, let _ = toBase {
             do {
@@ -75,8 +70,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     //クリップボードにコピー
     @IBAction private func didTapCopyButton(_ sender: Any) {
-        if(result != nil){
-            UIPasteboard.general.string = result
+        if(afterNumberLabel.text?.isEmpty == false){
+            UIPasteboard.general.string = afterNumberLabel.text
             copyClearLabel.fadeTransition(0.5)
             copyClearLabel.text = "クリップボードにコピーしました"
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
@@ -87,9 +82,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     func pickerFrom() {
-        pickerView.delegate = self
-        pickerView.dataSource = self
-
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
         let spaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneFrom))
@@ -101,11 +93,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         pickerView.selectRow(0, inComponent: 0, animated: false)
     }
-    
-    func pickerTo() {
-        pickerView.delegate = self
-        pickerView.dataSource = self
 
+    func pickerTo() {
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
         let spaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTo))
@@ -123,7 +112,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         fromBaseTextField.text = "\(baseLists[pickerView.selectedRow(inComponent: 0)])進数"
         fromBase = baseLists[pickerView.selectedRow(inComponent: 0)]
     }
-    
+
     @objc func doneTo() {
         toBaseTextField.endEditing(true)
         toBaseTextField.text = "\(baseLists[pickerView.selectedRow(inComponent: 0)])進数"
@@ -138,7 +127,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         wrongMessageLabel.fadeTransition(0.5)
         wrongMessageLabel.text = "⚠正しい値を入力して下さい"
     }
-        
+
     private func dismissWrongMessage() {
         wrongMessageLabel.fadeTransition(0.3)
         wrongMessageLabel.text = ""
