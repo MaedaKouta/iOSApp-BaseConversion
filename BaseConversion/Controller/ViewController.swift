@@ -56,21 +56,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction private func didTapConvertButton(_ sender: Any) {
-        wrongMessageLabel.fadeTransition(0.3)
-        wrongMessageLabel.text = ""
-        afterNumberLabel.text = ""
+        dismissWrongMessage()
         result = ""
 
         if let beforeNumString = beforeNumberTextField.text, let _ = fromBase, let _ = toBase {
             do {
                 try result = transition.transition(fromBase: fromBase, toBase: toBase, beforeNum: beforeNumString)
             } catch {
-                wrongMessageLabel.fadeTransition(0.5)
-                wrongMessageLabel.text = "⚠正しい値を入力して下さい"
+                outputWrongMessage()
             }
         } else {
-            wrongMessageLabel.fadeTransition(0.5)
-            wrongMessageLabel.text = "⚠正しい値を入力して下さい"
+            outputWrongMessage()
         }
 
         afterNumberLabel.text = result
@@ -136,6 +132,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     @objc func cancel() {
         view.endEditing(true)
+    }
+
+    private func outputWrongMessage() {
+        wrongMessageLabel.fadeTransition(0.5)
+        wrongMessageLabel.text = "⚠正しい値を入力して下さい"
+    }
+        
+    private func dismissWrongMessage() {
+        wrongMessageLabel.fadeTransition(0.3)
+        wrongMessageLabel.text = ""
     }
 
     //キーボードをしまう
