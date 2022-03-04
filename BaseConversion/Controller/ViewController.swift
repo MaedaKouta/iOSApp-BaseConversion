@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet private weak var fromBaseTextField: UITextField!
     @IBOutlet private weak var toBaseTextField: UITextField!
@@ -18,16 +18,27 @@ class ViewController: UIViewController {
     @IBOutlet private weak var modeChangeButton: UIButton!
     @IBOutlet private weak var wrongMessageLabel: UILabel!
 
+    private let baseLists = Array(2...36)
     private var fromBase:Int!
     private var toBase:Int!
-    private var beforeNum:String!
     private var result:String!
     private var copyOkText: String!
 
+    var pickerView: UIPickerView = UIPickerView()
     var transition = Transition()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        pickerFrom()
+        pickerTo()
+
+        fromBaseTextField.delegate = self
+        fromBaseTextField.tag = 1
+        fromBaseTextField.inputView = pickerView
+        toBaseTextField.delegate = self
+        toBaseTextField.tag = 2
+        toBaseTextField.inputView = pickerView
+
         //buttonの設定
         convertButton.layer.cornerRadius = 5
         modeChangeButton.layer.cornerRadius = 10
@@ -48,25 +59,22 @@ class ViewController: UIViewController {
         wrongMessageLabel.fadeTransition(0.3)
         wrongMessageLabel.text = ""
         afterNumberLabel.text = ""
-        fromBase = Int(fromBaseTextField.text!)
-        toBase = Int(toBaseTextField.text!)
-        beforeNum = beforeNumberTextField.text!
-        
-        do{
-            if(fromBaseTextField.text != "" && toBaseTextField.text != ""){
-                try result = transition.transition(fromBase: fromBase, toBase: toBase, beforeNum: beforeNum)
-            }else{
-                UIPasteboard.general.string = wrongMessageLabel.text!
+        result = ""
+
+        if let beforeNumString = beforeNumberTextField.text, let _ = fromBase, let _ = toBase {
+            do {
+                try result = transition.transition(fromBase: fromBase, toBase: toBase, beforeNum: beforeNumString)
+            } catch {
                 wrongMessageLabel.fadeTransition(0.5)
                 wrongMessageLabel.text = "⚠正しい値を入力して下さい"
             }
-        }catch{
-            UIPasteboard.general.string = wrongMessageLabel.text!
+        } else {
             wrongMessageLabel.fadeTransition(0.5)
             wrongMessageLabel.text = "⚠正しい値を入力して下さい"
         }
 
         afterNumberLabel.text = result
+
     }
 
     //クリップボードにコピー
@@ -82,14 +90,62 @@ class ViewController: UIViewController {
         }
     }
 
+    func pickerFrom() {
+        pickerView.delegate = self
+        pickerView.dataSource = self
+
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
+        let spaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneFrom))
+        let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
+        toolbar.setItems([cancelItem, spaceItem, doneItem], animated: true)
+
+        fromBaseTextField.inputView = pickerView
+        fromBaseTextField.inputAccessoryView = toolbar
+
+        pickerView.selectRow(0, inComponent: 0, animated: false)
+    }
+    
+    func pickerTo() {
+        pickerView.delegate = self
+        pickerView.dataSource = self
+
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
+        let spaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTo))
+        let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
+        toolbar.setItems([cancelItem, spaceItem, doneItem], animated: true)
+
+        toBaseTextField.inputView = pickerView
+        toBaseTextField.inputAccessoryView = toolbar
+
+        pickerView.selectRow(0, inComponent: 0, animated: false)
+    }
+
+    @objc func doneFrom() {
+        fromBaseTextField.endEditing(true)
+        fromBaseTextField.text = "\(baseLists[pickerView.selectedRow(inComponent: 0)])進数"
+        fromBase = baseLists[pickerView.selectedRow(inComponent: 0)]
+    }
+    
+    @objc func doneTo() {
+        toBaseTextField.endEditing(true)
+        toBaseTextField.text = "\(baseLists[pickerView.selectedRow(inComponent: 0)])進数"
+        toBase = baseLists[pickerView.selectedRow(inComponent: 0)]
+    }
+
+    @objc func cancel() {
+        view.endEditing(true)
+    }
+
     //キーボードをしまう
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            self.view.endEditing(true)
+        view.endEditing(true)
     }
 
     //画面遷移
     @IBAction private func didTapModeChangeButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
 }
@@ -107,5 +163,20 @@ extension UITextField {
         addSubview(underline)
         // 枠線を最前面に
         bringSubviewToFront(underline)
+    }
+}
+
+extension ViewController : UIPickerViewDelegate, UIPickerViewDataSource {
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return baseLists.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "\(baseLists[row])進数"
     }
 }
