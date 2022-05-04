@@ -10,7 +10,7 @@ import Foundation
 //累乗を行う
 class Exponentiation{
     var num = 1
-    func exponential(x:Int ,times:Int) -> Int{
+    func exponential(x:Int, times:Int) -> Int {
         if(times == 0){
             return 1
         }else{
