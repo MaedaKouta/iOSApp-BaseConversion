@@ -12,12 +12,30 @@ class SimpleViewController: UIViewController {
     @IBOutlet private weak var inputNumberTextField: UITextField!
     @IBOutlet private var answerTextLabels: [UILabel]!
     @IBOutlet private weak var baseSegmentedControl: UISegmentedControl!
+
+    @IBOutlet private weak var base2View: UIView!
+    @IBOutlet private weak var base8View: UIView!
+    @IBOutlet private weak var base10View: UIView!
+    @IBOutlet private weak var base16View: UIView!
+
     private var resultNumberStringArray: [String] = ["", "", "", ""]
     private var transition = Transition()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         inputNumberTextField.keyboardType = .numberPad
+        base2View.layer.borderWidth = 1.0
+        base2View.layer.borderColor = UIColor.systemGray.cgColor
+        base2View.layer.cornerRadius = 5
+        base8View.layer.borderWidth = 1.0
+        base8View.layer.borderColor = UIColor.systemGray.cgColor
+        base8View.layer.cornerRadius = 5
+        base10View.layer.borderWidth = 1.0
+        base10View.layer.cornerRadius = 5
+        base10View.layer.borderColor = UIColor.systemGray.cgColor
+        base16View.layer.borderWidth = 1.0
+        base16View.layer.cornerRadius = 5
+        base16View.layer.borderColor = UIColor.systemGray.cgColor
     }
 
     @IBAction func didTapTransitionButton(_ sender: UIButton) {
