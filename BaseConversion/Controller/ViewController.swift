@@ -9,48 +9,45 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet private weak var fromBaseTextField: UITextField!
-    @IBOutlet private weak var toBaseTextField: UITextField!
+    @IBOutlet private weak var beforeBaseNumberTextField: UITextField!
+    @IBOutlet private weak var afterBaseNumberTextField: UITextField!
     @IBOutlet private weak var beforeNumberTextField: UITextField!
     @IBOutlet private weak var afterNumberLabel: UILabel!
     @IBOutlet private weak var convertButton: UIButton!
-    @IBOutlet private weak var copyClearLabel: UILabel!
 
     private let baseLists = Array(2...36)
-    private var fromBase:Int!
-    private var toBase:Int!
+    private var beforeBaseNumber:Int!
+    private var afterBaseNumber:Int!
 
-    var pickerView: UIPickerView = UIPickerView()
-    var transition = Transition()
+    private let pickerView: UIPickerView = UIPickerView()
+    private let transition = Transition()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setAfterPickerView()
-        setBeforePickerView()
+
         pickerView.delegate = self
         pickerView.dataSource = self
-        fromBaseTextField.inputView = pickerView
-        toBaseTextField.inputView = pickerView
+        setAfterPickerView()
+        setBeforePickerView()
+        beforeBaseNumberTextField.inputView = pickerView
+        afterBaseNumberTextField.inputView = pickerView
 
-        fromBaseTextField.keyboardType = UIKeyboardType.numberPad
-        toBaseTextField.keyboardType = UIKeyboardType.numberPad
+        beforeBaseNumberTextField.keyboardType = UIKeyboardType.numberPad
+        afterBaseNumberTextField.keyboardType = UIKeyboardType.numberPad
         beforeNumberTextField.keyboardType = UIKeyboardType.numbersAndPunctuation
     }
 
     @IBAction private func didTapConvertButton(_ sender: Any) {
         var result = ""
 
-        guard let beforeNumber = beforeNumberTextField.text, let _ = fromBase, let _ = toBase  else {
+        guard let beforeNumber = beforeNumberTextField.text, let _ = beforeBaseNumber, let _ = afterBaseNumber  else {
             print("wrong")
             return
         }
 
         do {
-            try result = transition.transition(fromBase: fromBase, toBase: toBase, beforeNum: beforeNumber)
+            try result = transition.transition(fromBase: beforeBaseNumber, toBase: afterBaseNumber, beforeNum: beforeNumber)
             afterNumberLabel.text = result
-            print(fromBase)
-            print(toBase)
-            print(result)
         } catch {
             print("失敗した")
         }
@@ -61,55 +58,56 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction private func didTapCopyButton(_ sender: Any) {
         if(afterNumberLabel.text?.isEmpty == false){
             UIPasteboard.general.string = afterNumberLabel.text
-            copyClearLabel.fadeTransition(0.5)
-            copyClearLabel.text = "クリップボードにコピーしました"
+            //copyClearLabel.text = "クリップボードにコピーしました"
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                self.copyClearLabel.fadeTransition(0.5)
-                self.copyClearLabel.text = ""
+                //self.copyClearLabel.fadeTransition(0.5)
+                //self.copyClearLabel.text = ""
             }
         }
     }
 
-    func setAfterPickerView() {
+
+    private func setBeforePickerView() {
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
         let spaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapAfterPickerDoneItem))
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapBeforePickerDoneButton))
         let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         toolbar.setItems([cancelItem, spaceItem, doneItem], animated: true)
 
-        toBaseTextField.inputView = pickerView
-        toBaseTextField.inputAccessoryView = toolbar
+        beforeBaseNumberTextField.inputView = pickerView
+        beforeBaseNumberTextField.inputAccessoryView = toolbar
 
         pickerView.selectRow(0, inComponent: 0, animated: false)
     }
 
 
-    func setBeforePickerView() {
+    private func setAfterPickerView() {
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
         let spaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapBeforePickerDoneItem))
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapAfterPickerDoneButton))
         let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         toolbar.setItems([cancelItem, spaceItem, doneItem], animated: true)
 
-        fromBaseTextField.inputView = pickerView
-        fromBaseTextField.inputAccessoryView = toolbar
+        afterBaseNumberTextField.inputView = pickerView
+        afterBaseNumberTextField.inputAccessoryView = toolbar
 
         pickerView.selectRow(0, inComponent: 0, animated: false)
     }
 
-    @objc func didTapBeforePickerDoneItem() {
-        fromBaseTextField.endEditing(true)
-        fromBaseTextField.text = "\(baseLists[pickerView.selectedRow(inComponent: 0)])進数"
-        fromBase = baseLists[pickerView.selectedRow(inComponent: 0)]
+
+    @objc private func didTapBeforePickerDoneButton() {
+        beforeBaseNumberTextField.endEditing(true)
+        beforeBaseNumberTextField.text = "\(baseLists[pickerView.selectedRow(inComponent: 0)])進数"
+        beforeBaseNumber = baseLists[pickerView.selectedRow(inComponent: 0)]
     }
 
-    @objc func didTapAfterPickerDoneItem() {
-        toBaseTextField.endEditing(true)
-        toBaseTextField.text = "\(baseLists[pickerView.selectedRow(inComponent: 0)])進数"
-        toBase = baseLists[pickerView.selectedRow(inComponent: 0)]
+    @objc private func didTapAfterPickerDoneButton() {
+        afterBaseNumberTextField.endEditing(true)
+        afterBaseNumberTextField.text = "\(baseLists[pickerView.selectedRow(inComponent: 0)])進数"
+        afterBaseNumber = baseLists[pickerView.selectedRow(inComponent: 0)]
     }
 
-    @objc func cancel() {
+    @objc private func cancel() {
         view.endEditing(true)
     }
 

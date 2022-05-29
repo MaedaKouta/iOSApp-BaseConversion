@@ -24,18 +24,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmK-sb-Cud">
-                                <rect key="frame" x="16" y="403" width="245" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="変換前" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sFy-9W-3zj">
                                 <rect key="frame" x="30" y="154" width="120" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -56,30 +48,33 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIy-il-Bf4">
-                                <rect key="frame" x="16" y="363" width="353" height="69"/>
+                                <rect key="frame" x="16" y="345" width="353" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="md8-o4-hfH">
+                                <rect key="frame" x="158" y="159" width="81" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="プロ" image="square.and.arrow.up.fill" catalog="system" selectedImage="airpodspro" id="tEc-3r-cJD"/>
                     <connections>
+                        <outlet property="afterBaseNumberTextField" destination="iqp-BQ-d7d" id="GHc-AB-mNl"/>
                         <outlet property="afterNumberLabel" destination="ZIy-il-Bf4" id="bFh-Ji-Fq5"/>
+                        <outlet property="beforeBaseNumberTextField" destination="sFy-9W-3zj" id="ZSl-XE-sPo"/>
                         <outlet property="beforeNumberTextField" destination="KJf-KW-GzD" id="ikN-zJ-Z6L"/>
                         <outlet property="convertButton" destination="ntN-su-oo3" id="ChA-Wa-7b7"/>
-                        <outlet property="copyClearLabel" destination="xmK-sb-Cud" id="Vny-DT-ppw"/>
-                        <outlet property="fromBaseTextField" destination="sFy-9W-3zj" id="ZSl-XE-sPo"/>
-                        <outlet property="toBaseTextField" destination="iqp-BQ-d7d" id="GHc-AB-mNl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="42" y="427"/>
+            <point key="canvasLocation" x="41.53846153846154" y="426.54028436018956"/>
         </scene>
         <!--シンプル-->
         <scene sceneID="kky-ap-EcN">
@@ -312,6 +307,7 @@
     </scenes>
     <resources>
         <image name="airpodspro" catalog="system" width="128" height="80"/>
+        <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="cube.box" catalog="system" width="128" height="124"/>
         <image name="keyboard" catalog="system" width="128" height="79"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
