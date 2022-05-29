@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var beforeNumberTextField: UITextField!
     @IBOutlet private weak var afterNumberLabel: UILabel!
     @IBOutlet private weak var convertButton: UIButton!
+    @IBOutlet private weak var afterBaseNumberView: UIView!
 
     private let baseLists = Array(2...36)
     private var beforeBaseNumber:Int!
@@ -31,6 +32,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         setBeforePickerView()
         beforeBaseNumberTextField.inputView = pickerView
         afterBaseNumberTextField.inputView = pickerView
+
+        afterBaseNumberView.layer.cornerRadius = 5
+        afterBaseNumberView.layer.borderColor = UIColor.systemGray.cgColor
 
         beforeBaseNumberTextField.keyboardType = UIKeyboardType.numberPad
         afterBaseNumberTextField.keyboardType = UIKeyboardType.numberPad
