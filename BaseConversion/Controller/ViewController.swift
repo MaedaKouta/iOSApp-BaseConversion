@@ -15,7 +15,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var afterNumberLabel: UILabel!
     @IBOutlet private weak var convertButton: UIButton!
     @IBOutlet private weak var copyClearLabel: UILabel!
-    @IBOutlet private weak var modeChangeButton: UIButton!
     @IBOutlet private weak var wrongMessageLabel: UILabel!
 
     private let baseLists = Array(2...36)
@@ -34,17 +33,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         fromBaseTextField.inputView = pickerView
         toBaseTextField.inputView = pickerView
 
-        //buttonの設定
-        convertButton.layer.cornerRadius = 5
-        modeChangeButton.layer.cornerRadius = 10
-
         //TextFieldの設定
         fromBaseTextField.setUnderLine()
         toBaseTextField.setUnderLine()
         beforeNumberTextField.setUnderLine()
-        fromBaseTextField.attributedPlaceholder = NSAttributedString(string: "変換前", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
-        toBaseTextField.attributedPlaceholder = NSAttributedString(string: "変換後", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
-        beforeNumberTextField.attributedPlaceholder = NSAttributedString(string: "変換したい値", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         fromBaseTextField.keyboardType = UIKeyboardType.numberPad
         toBaseTextField.keyboardType = UIKeyboardType.numberPad
         beforeNumberTextField.keyboardType = UIKeyboardType.numbersAndPunctuation
@@ -138,26 +130,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
 
-    //画面遷移
-    @IBAction private func didTapModeChangeButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-
 }
 
 //TextFieldのデザインを整える
 extension UITextField {
     func setUnderLine() {
         // 枠線を非表示にする
-        borderStyle = .none
-        let underline = UIView()
+        //borderStyle = .none
+        //let underline = UIView()
         // heightにはアンダーラインの高さを入れる
-        underline.frame = CGRect(x: 0, y: frame.height, width: frame.width, height: 0.5)
+        //underline.frame = CGRect(x: 0, y: frame.height, width: frame.width, height: 0.5)
         // 枠線の色
-        underline.backgroundColor = .white
-        addSubview(underline)
+        //underline.backgroundColor = .white
+        //addSubview(underline)
         // 枠線を最前面に
-        bringSubviewToFront(underline)
+        //bringSubviewToFront(underline)
     }
 }
 
