@@ -15,7 +15,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var afterNumberLabel: UILabel!
     @IBOutlet private weak var convertButton: UIButton!
     @IBOutlet private weak var copyClearLabel: UILabel!
-    @IBOutlet private weak var wrongMessageLabel: UILabel!
 
     private let baseLists = Array(2...36)
     private var fromBase:Int!
@@ -26,37 +25,35 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        pickerFrom()
-        pickerTo()
+        setAfterPickerView()
+        setBeforePickerView()
         pickerView.delegate = self
         pickerView.dataSource = self
         fromBaseTextField.inputView = pickerView
         toBaseTextField.inputView = pickerView
 
-        //TextFieldの設定
-        fromBaseTextField.setUnderLine()
-        toBaseTextField.setUnderLine()
-        beforeNumberTextField.setUnderLine()
         fromBaseTextField.keyboardType = UIKeyboardType.numberPad
         toBaseTextField.keyboardType = UIKeyboardType.numberPad
         beforeNumberTextField.keyboardType = UIKeyboardType.numbersAndPunctuation
     }
 
     @IBAction private func didTapConvertButton(_ sender: Any) {
-        dismissWrongMessage()
         var result = ""
 
-        if let beforeNumString = beforeNumberTextField.text, let _ = fromBase, let _ = toBase {
-            do {
-                try result = transition.transition(fromBase: fromBase, toBase: toBase, beforeNum: beforeNumString)
-            } catch {
-                outputWrongMessage()
-            }
-        } else {
-            outputWrongMessage()
+        guard let beforeNumber = beforeNumberTextField.text, let _ = fromBase, let _ = toBase  else {
+            print("wrong")
+            return
         }
 
-        afterNumberLabel.text = result
+        do {
+            try result = transition.transition(fromBase: fromBase, toBase: toBase, beforeNum: beforeNumber)
+            afterNumberLabel.text = result
+            print(fromBase)
+            print(toBase)
+            print(result)
+        } catch {
+            print("失敗した")
+        }
 
     }
 
@@ -73,23 +70,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    func pickerFrom() {
+    func setAfterPickerView() {
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
         let spaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneFrom))
-        let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
-        toolbar.setItems([cancelItem, spaceItem, doneItem], animated: true)
-
-        fromBaseTextField.inputView = pickerView
-        fromBaseTextField.inputAccessoryView = toolbar
-
-        pickerView.selectRow(0, inComponent: 0, animated: false)
-    }
-
-    func pickerTo() {
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
-        let spaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTo))
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapAfterPickerDoneItem))
         let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         toolbar.setItems([cancelItem, spaceItem, doneItem], animated: true)
 
@@ -99,13 +83,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
         pickerView.selectRow(0, inComponent: 0, animated: false)
     }
 
-    @objc func doneFrom() {
+
+    func setBeforePickerView() {
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
+        let spaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapBeforePickerDoneItem))
+        let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
+        toolbar.setItems([cancelItem, spaceItem, doneItem], animated: true)
+
+        fromBaseTextField.inputView = pickerView
+        fromBaseTextField.inputAccessoryView = toolbar
+
+        pickerView.selectRow(0, inComponent: 0, animated: false)
+    }
+
+    @objc func didTapBeforePickerDoneItem() {
         fromBaseTextField.endEditing(true)
         fromBaseTextField.text = "\(baseLists[pickerView.selectedRow(inComponent: 0)])進数"
         fromBase = baseLists[pickerView.selectedRow(inComponent: 0)]
     }
 
-    @objc func doneTo() {
+    @objc func didTapAfterPickerDoneItem() {
         toBaseTextField.endEditing(true)
         toBaseTextField.text = "\(baseLists[pickerView.selectedRow(inComponent: 0)])進数"
         toBase = baseLists[pickerView.selectedRow(inComponent: 0)]
@@ -115,37 +113,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
 
-    private func outputWrongMessage() {
-        wrongMessageLabel.fadeTransition(0.5)
-        wrongMessageLabel.text = "⚠正しい値を入力して下さい"
-    }
-
-    private func dismissWrongMessage() {
-        wrongMessageLabel.fadeTransition(0.3)
-        wrongMessageLabel.text = ""
-    }
-
     //キーボードをしまう
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
 
-}
-
-//TextFieldのデザインを整える
-extension UITextField {
-    func setUnderLine() {
-        // 枠線を非表示にする
-        //borderStyle = .none
-        //let underline = UIView()
-        // heightにはアンダーラインの高さを入れる
-        //underline.frame = CGRect(x: 0, y: frame.height, width: frame.width, height: 0.5)
-        // 枠線の色
-        //underline.backgroundColor = .white
-        //addSubview(underline)
-        // 枠線を最前面に
-        //bringSubviewToFront(underline)
-    }
 }
 
 extension ViewController : UIPickerViewDelegate, UIPickerViewDataSource {
