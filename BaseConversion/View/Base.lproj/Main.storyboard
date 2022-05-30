@@ -12,7 +12,7 @@
         <!--プロモード-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="Next" modalTransitionStyle="crossDissolve" id="BYZ-38-t0r" customClass="ViewController" customModule="BaseConversion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Next" modalTransitionStyle="crossDissolve" id="BYZ-38-t0r" customClass="ProViewController" customModule="BaseConversion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -517,7 +517,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JdA-Dq-tcb"/>
+        <segue reference="Voy-wB-Nlm"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="98"/>

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ProViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet private weak var beforeBaseNumberTextField: UITextField!
     @IBOutlet private weak var afterBaseNumberTextField: UITextField!
@@ -122,7 +122,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
 }
 
-extension ViewController : UIPickerViewDelegate, UIPickerViewDataSource {
+extension ProViewController : UIPickerViewDelegate, UIPickerViewDataSource {
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
