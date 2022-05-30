@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		870B06EC284434BD00CE24E2 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B06EB284434BD00CE24E2 /* SettingViewController.swift */; };
+		8717C48928445C1B00A908E8 /* CopyUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717C48828445C1B00A908E8 /* CopyUILabel.swift */; };
 		B978963726C2022E0060BE0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B978963626C2022E0060BE0A /* AppDelegate.swift */; };
 		B978963926C2022E0060BE0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B978963826C2022E0060BE0A /* SceneDelegate.swift */; };
 		B978963B26C2022E0060BE0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B978963A26C2022E0060BE0A /* ViewController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		870B06EB284434BD00CE24E2 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		8717C48828445C1B00A908E8 /* CopyUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyUILabel.swift; sourceTree = "<group>"; };
 		B978963326C2022E0060BE0A /* BaseConversion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseConversion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B978963626C2022E0060BE0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B978963826C2022E0060BE0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 			children = (
 				B9DE7C6726C605A500DCDA52 /* Transition.swift */,
 				B9DE7C6926C6221300DCDA52 /* Exponentiation.swift */,
+				8717C48828445C1B00A908E8 /* CopyUILabel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -96,6 +101,7 @@
 				B978963826C2022E0060BE0A /* SceneDelegate.swift */,
 				B978963A26C2022E0060BE0A /* ViewController.swift */,
 				B9D245F226C743B9003ADCF3 /* SimpleViewController.swift */,
+				870B06EB284434BD00CE24E2 /* SettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -175,6 +181,8 @@
 				B9D245F326C743B9003ADCF3 /* SimpleViewController.swift in Sources */,
 				B978963726C2022E0060BE0A /* AppDelegate.swift in Sources */,
 				B9DE7C6826C605A500DCDA52 /* Transition.swift in Sources */,
+				8717C48928445C1B00A908E8 /* CopyUILabel.swift in Sources */,
+				870B06EC284434BD00CE24E2 /* SettingViewController.swift in Sources */,
 				B978963926C2022E0060BE0A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
