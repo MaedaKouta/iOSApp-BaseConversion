@@ -10,7 +10,7 @@ import Foundation
 //n進数からn進数にするコード
 class Transition{
 
-    func transition(fromBase:Int, toBase:Int, beforeNum:String) throws -> String {
+    func transitionProMode(fromBase:Int, toBase:Int, beforeNum:String) throws -> String {
         if fromBase<2 || 36<fromBase || toBase<2 || 36<toBase {
             throw NSError(domain: "bigNum", code: -1, userInfo: nil)
         } else if Int(beforeNum, radix: fromBase) == nil {

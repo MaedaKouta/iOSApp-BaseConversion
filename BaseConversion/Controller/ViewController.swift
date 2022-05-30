@@ -50,7 +50,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
 
         do {
-            try result = transition.transition(fromBase: beforeBaseNumber, toBase: afterBaseNumber, beforeNum: beforeNumber)
+            try result = transition.transitionProMode(fromBase: beforeBaseNumber, toBase: afterBaseNumber, beforeNum: beforeNumber)
             afterNumberLabel.text = result
         } catch {
             print("失敗した")

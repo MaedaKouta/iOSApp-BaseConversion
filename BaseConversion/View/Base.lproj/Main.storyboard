@@ -149,8 +149,9 @@
                                             <constraint firstAttribute="height" constant="40" id="God-uu-jdN"/>
                                         </constraints>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="変換"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="変換" cornerStyle="small">
+                                            <color key="baseBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="didTapTransitionButton:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="c9t-pA-o4X"/>
                                         </connections>
@@ -300,6 +301,7 @@
                         <outlet property="base8View" destination="E6S-jv-iTZ" id="v15-zO-aac"/>
                         <outlet property="baseSegmentedControl" destination="fpl-Rm-QxA" id="210-CA-Nu8"/>
                         <outlet property="inputNumberTextField" destination="TMz-75-AdI" id="5uu-Y5-QNx"/>
+                        <outlet property="transitionButton" destination="3vg-EZ-JsF" id="Ve5-GI-LnQ"/>
                         <outletCollection property="answerTextLabels" destination="ewT-aE-n2I" collectionClass="NSMutableArray" id="0Cf-6P-GvM"/>
                         <outletCollection property="answerTextLabels" destination="meB-fP-Vli" collectionClass="NSMutableArray" id="UdN-Mj-a48"/>
                         <outletCollection property="answerTextLabels" destination="IEd-yX-BO0" collectionClass="NSMutableArray" id="VdL-DF-87R"/>
