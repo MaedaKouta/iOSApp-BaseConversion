@@ -513,7 +513,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaj-q0-3aj">
-                                <rect key="frame" x="0.0" y="88" width="390" height="678"/>
+                                <rect key="frame" x="0.0" y="88" width="390" height="673"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -521,11 +521,19 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l14-YK-MDo">
-                                <rect key="frame" x="0.0" y="766" width="390" height="44"/>
+                                <rect key="frame" x="0.0" y="761" width="390" height="49"/>
                                 <items>
-                                    <barButtonItem image="chevron.left" catalog="system" id="URB-bV-MGA"/>
+                                    <barButtonItem image="chevron.left" catalog="system" id="URB-bV-MGA">
+                                        <connections>
+                                            <action selector="didTapBackButton:" destination="NOe-MB-3FE" id="cHi-6N-5CD"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="274" style="plain" systemItem="fixedSpace" id="Xf1-6p-cyc"/>
-                                    <barButtonItem image="chevron.right" catalog="system" id="X1n-Ck-VZH"/>
+                                    <barButtonItem image="chevron.right" catalog="system" id="X1n-Ck-VZH">
+                                        <connections>
+                                            <action selector="didTapForwardButton:" destination="NOe-MB-3FE" id="gPZ-sJ-TG0"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -542,8 +550,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="yHF-7S-epx">
-                        <barButtonItem key="leftBarButtonItem" title="戻る" id="eab-3u-EvP"/>
+                        <barButtonItem key="leftBarButtonItem" title="戻る" id="eab-3u-EvP">
+                            <connections>
+                                <action selector="didTapExitButton:" destination="NOe-MB-3FE" id="niD-ku-BUO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="backButton" destination="URB-bV-MGA" id="Xn3-wN-ey1"/>
+                        <outlet property="forwardButton" destination="X1n-Ck-VZH" id="ge4-Ys-4K8"/>
+                        <outlet property="webView" destination="gaj-q0-3aj" id="Z65-QZ-31a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jhn-ju-JVy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
