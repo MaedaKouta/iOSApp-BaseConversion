@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum TransitionError : Error {
+    case WrongInputBase  // 入力進数が間違えている
+    case OverNumber // 入力・出力進数が大きすぎる
+}
+
 //n進数からn進数にするコード
 class Transition{
 
@@ -21,8 +26,43 @@ class Transition{
     }
 
     func transitionSimpleMode(fromBase: Int, beforeNumber: String) throws -> [String] {
+
+        // 入力された進数を適切に入力されているか判定
+        for char in beforeNumber {
+
+            if fromBase == 2 {
+                let needsNumber = "01"
+                if !needsNumber.contains(char) {
+                    throw TransitionError.WrongInputBase
+                }
+            }
+
+            if fromBase == 8 {
+                let needsNumber = "01234567"
+                if !needsNumber.contains(char) {
+                    throw TransitionError.WrongInputBase
+                }
+            }
+
+            if fromBase == 10 {
+                let needsNumber = "0123456789"
+                if !needsNumber.contains(char) {
+                    throw TransitionError.WrongInputBase
+                }
+            }
+
+            if fromBase == 16 {
+                let needsNumber = "0123456789abcdef"
+                if !needsNumber.contains(char) {
+                    throw TransitionError.WrongInputBase
+                }
+            }
+
+        }
+
+        // Intのキャパを超えるかの判定
         if Int(beforeNumber, radix: fromBase) == nil {
-            throw NSError(domain: "bigNum", code: -1, userInfo: nil)
+            throw TransitionError.OverNumber
         }
 
         let base2String = String(Int(beforeNumber, radix: fromBase)!, radix:2)

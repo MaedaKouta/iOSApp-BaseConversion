@@ -50,20 +50,52 @@ class SimpleViewController: UIViewController {
     @IBAction private func didTapTransitionButton(_ sender: UIButton) {
         let base = [2, 8, 10, 16]
         let baseIndex = baseSegmentedControl.selectedSegmentIndex
-        guard let number = Int(inputNumberTextField.text ?? "") else {
-            print("値が大きすぎて変換できません")
+
+        // textFieldに値が入っているかの判定
+        let text = inputNumberTextField.text ?? ""
+        let trimmedText = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        if trimmedText.isEmpty == true {
+            makeLabelBlank()
+            presentAleart(title: "エラー", message: "値が入力されていません。", actionTitle: "了解")
             return
         }
+
         do {
-            try resultNumberStringArray = transition.transitionSimpleMode(fromBase: base[baseIndex], beforeNumber: String(number))
+            try resultNumberStringArray = transition.transitionSimpleMode(fromBase: base[baseIndex], beforeNumber: String(trimmedText))
             print(resultNumberStringArray)
         } catch {
-            print("値が大きすぎて変換できません")
+            makeLabelBlank()
+            if error as? TransitionError == TransitionError.WrongInputBase {
+                presentAleart(title: "エラー", message: "選択された進数と値が一致しません。", actionTitle: "了解")
+            }
+            if error as? TransitionError == TransitionError.OverNumber {
+                presentAleart(title: "エラー", message: "入力された値が大きすぎます。", actionTitle: "了解")
+            }
+            print(error)
+            //presentAleart(title: "エラー", message: "値が大きすぎて変換できませんでした。", actionTitle: "了解")
         }
         for i in 0..<resultNumberStringArray.count {
             answerTextLabels[i].text = resultNumberStringArray[i]
         }
 
+    }
+
+    private func makeLabelBlank() {
+        resultNumberStringArray = ["", "", "", ""]
+        for i in 0..<resultNumberStringArray.count {
+            answerTextLabels[i].text = resultNumberStringArray[i]
+        }
+    }
+
+    private func presentAleart(title: String, message: String, actionTitle: String) {
+
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        let ok = UIAlertAction(title: actionTitle, style: .cancel) { (acrion) in
+        }
+
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
     }
 
 /*
