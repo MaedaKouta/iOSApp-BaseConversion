@@ -19,25 +19,30 @@ class SettingWebViewController: UIViewController, WKUIDelegate, WKNavigationDele
         super.viewDidLoad()
         webView.navigationDelegate = self
         webView.uiDelegate = self
+        if let url = URL(string: presentUrl) {
+            self.webView.load(URLRequest(url: url))
+        } else {
+            print("URLが取得できませんでした。")
+        }
         judgeToolBarButton()
     }
 
     @IBAction private func didTapBackButton(_ sender: Any) {
         webView.goBack()
-        judgeToolBarButton()
     }
 
     @IBAction private func didTapForwardButton(_ sender: Any) {
         webView.goForward()
-        judgeToolBarButton()
     }
 
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         print("読み込み開始")
+        judgeToolBarButton()
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("読み込み完了")
+        judgeToolBarButton()
     }
 
     private func judgeToolBarButton() {

@@ -466,7 +466,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uf7-r5-Uuw">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="uf7-r5-Uuw">
                                         <rect key="frame" x="20" y="317.0000057220459" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uf7-r5-Uuw" id="FlX-NK-clL">
@@ -498,7 +498,17 @@
                             <outlet property="delegate" destination="8UW-VU-GEO" id="h9R-HQ-9f7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="設定" id="u9f-Kk-Koa"/>
+                    <navigationItem key="navigationItem" title="設定" id="u9f-Kk-Koa">
+                        <barButtonItem key="leftBarButtonItem" title="戻る" id="baH-ix-k3g">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="didTapExitButton:" destination="8UW-VU-GEO" id="8cv-7C-Fem"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="versionLabel" destination="TeS-Ta-Mij" id="THZ-Et-DVf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kcs-73-hZF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -524,12 +534,14 @@
                                 <rect key="frame" x="0.0" y="761" width="390" height="49"/>
                                 <items>
                                     <barButtonItem image="chevron.left" catalog="system" id="URB-bV-MGA">
+                                        <color key="tintColor" systemColor="tintColor"/>
                                         <connections>
                                             <action selector="didTapBackButton:" destination="NOe-MB-3FE" id="cHi-6N-5CD"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="274" style="plain" systemItem="fixedSpace" id="Xf1-6p-cyc"/>
-                                    <barButtonItem image="chevron.right" catalog="system" id="X1n-Ck-VZH">
+                                    <barButtonItem width="313" style="plain" systemItem="fixedSpace" id="Xf1-6p-cyc"/>
+                                    <barButtonItem image="chevron.right" catalog="system" width="63.333333333333314" id="X1n-Ck-VZH">
+                                        <color key="tintColor" systemColor="tintColor"/>
                                         <connections>
                                             <action selector="didTapForwardButton:" destination="NOe-MB-3FE" id="gPZ-sJ-TG0"/>
                                         </connections>
@@ -551,6 +563,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="yHF-7S-epx">
                         <barButtonItem key="leftBarButtonItem" title="戻る" id="eab-3u-EvP">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="didTapExitButton:" destination="NOe-MB-3FE" id="niD-ku-BUO"/>
                             </connections>
@@ -564,7 +577,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jhn-ju-JVy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5273.8461538461534" y="5.6872037914691944"/>
+            <point key="canvasLocation" x="5285" y="6"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bpj-cN-fpD">
@@ -587,7 +600,7 @@
         <!--Navigation Controller-->
         <scene sceneID="bnA-xC-KvF">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aah-mD-was" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="WebViewNC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aah-mD-was" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cex-Va-3Uh">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
@@ -615,6 +628,9 @@
         <image name="tortoise.fill" catalog="system" width="128" height="66"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

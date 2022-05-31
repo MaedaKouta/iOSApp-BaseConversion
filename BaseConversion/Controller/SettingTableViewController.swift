@@ -9,8 +9,17 @@ import UIKit
 
 class SettingTableViewController: UITableViewController {
 
+
+    @IBOutlet private weak var versionLabel: UILabel!
+    private let reviewUrl = "https://apps.apple.com/jp/app/%E9%80%B2%E6%95%B0%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC/id1581706168?mt=8&action=write-review"
+    private let feedbackUrl = "https://forms.gle/dkDVq2x3QpDEYmPm6"
+    private let privacyUrl = "https://tetoblog.org/base-conversion/privacy/"
+    private let ruleUrl = "https://tetoblog.org/base-conversion/rule/"
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+        versionLabel.text = version
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -21,59 +30,66 @@ class SettingTableViewController: UITableViewController {
         return 3
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath == [0, 0] {
+            reviewApp()
+        } else if indexPath == [0, 1] {
+            shareApp()
+        } else if indexPath == [0, 2] {
+            prepareWebView(url: feedbackUrl, title: "お問い合わせ")
+        } else if indexPath == [1, 0] {
+            prepareWebView(url: privacyUrl, title: "プライバシーポリシー")
+        } else if indexPath == [1, 1] {
+            prepareWebView(url: ruleUrl, title: "利用規約")
+        }
 
-        // Configure the cell...
-
-        return cell
+        // 選択された色がスーっと消えていく
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    private func reviewApp() {
+        if let url = URL(string: reviewUrl) {
+            UIApplication.shared.open(url)
+        }
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    private func prepareWebView(url: String, title: String) {
+        guard let nextNC = storyboard?.instantiateViewController(withIdentifier: "WebViewNC") as? UINavigationController, let nextVC = nextNC.topViewController as? SettingWebViewController else {
+            return
+        }
+        nextVC.navigationItem.title = title
+        nextVC.catchUrl(url: url)
+        present(nextNC, animated: true, completion: nil)
     }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+    private func shareApp() {
+        // TODO: 文字を考える
+        let shareText = """
+        今まで無かったToDoアプリ
+        「Swipe ToDo」
 
+        スワイプでToDoを消費。
+        グラフでモチベーション管理。
+        まさに、
+        途中で挫折しないToDoアプリ
+        """
+
+        let activityItems = [shareText] as [Any]
+
+        // 初期化処理
+        let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+
+        // iPadでクラッシュするため、iPadのみレイアウトの変更
+        if let popoverController = activityVC.popoverPresentationController {
+            popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+            popoverController.sourceView = self.view
+            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        }
+        self.present(activityVC, animated: true)
     }
-    */
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    @IBAction func didTapExitButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
