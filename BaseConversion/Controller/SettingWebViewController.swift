@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+// import PKHUD
 
 class SettingWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate  {
 
@@ -19,6 +20,8 @@ class SettingWebViewController: UIViewController, WKUIDelegate, WKNavigationDele
         super.viewDidLoad()
         webView.navigationDelegate = self
         webView.uiDelegate = self
+
+        // HUD.show(.progress, onView: view)
         if let url = URL(string: presentUrl) {
             self.webView.load(URLRequest(url: url))
         } else {
@@ -42,6 +45,7 @@ class SettingWebViewController: UIViewController, WKUIDelegate, WKNavigationDele
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("読み込み完了")
+        // HUD.hide(animated: true)
         judgeToolBarButton()
     }
 
