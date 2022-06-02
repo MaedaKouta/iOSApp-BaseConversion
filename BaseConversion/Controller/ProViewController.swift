@@ -33,8 +33,10 @@ class ProViewController: UIViewController, UITextFieldDelegate {
         beforeBaseNumberTextField.inputView = pickerView
         afterBaseNumberTextField.inputView = pickerView
 
-        afterBaseNumberView.layer.cornerRadius = 5
+        afterBaseNumberView.layer.borderWidth = 1.0
         afterBaseNumberView.layer.borderColor = UIColor.systemGray.cgColor
+        afterBaseNumberView.layer.cornerRadius = 3
+        //afterBaseNumberView.isHidden = false
 
         beforeBaseNumberTextField.keyboardType = UIKeyboardType.numberPad
         afterBaseNumberTextField.keyboardType = UIKeyboardType.numberPad
