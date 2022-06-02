@@ -27,21 +27,22 @@ class SimpleViewController: UIViewController {
         inputNumberTextField.keyboardType = .numberPad
         base2View.layer.borderWidth = 1.0
         base2View.layer.borderColor = UIColor.systemGray.cgColor
-        //base2View.layer.cornerRadius = 5
+        base2View.layer.cornerRadius = 3
         base8View.layer.borderWidth = 1.0
         base8View.layer.borderColor = UIColor.systemGray.cgColor
-        //base8View.layer.cornerRadius = 5
+        base8View.layer.cornerRadius = 3
         base10View.layer.borderWidth = 1.0
-        //base10View.layer.cornerRadius = 5
+        base10View.layer.cornerRadius = 3
         base10View.layer.borderColor = UIColor.systemGray.cgColor
         base16View.layer.borderWidth = 1.0
-        //base16View.layer.cornerRadius = 5
+        base16View.layer.cornerRadius = 3
         base16View.layer.borderColor = UIColor.systemGray.cgColor
         answerTextLabels[0].adjustsFontSizeToFitWidth = true
         answerTextLabels[1].adjustsFontSizeToFitWidth = true
         answerTextLabels[2].adjustsFontSizeToFitWidth = true
         answerTextLabels[3].adjustsFontSizeToFitWidth = true
 
+ 
         //transitionButton.layer.borderWidth = 1.0
         //transitionButton.layer.borderColor = UIColor.systemGray.cgColor
         transitionButton.layer.cornerRadius = 40

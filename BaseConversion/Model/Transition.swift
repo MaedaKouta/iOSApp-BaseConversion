@@ -8,8 +8,8 @@
 import Foundation
 
 enum TransitionError : Error {
-    case WrongInputBase  // 入力進数が間違えている
-    case OverNumber // 入力・出力進数が大きすぎる
+    case WrongInputBase  // 入力進数が間違えているエラー
+    case OverNumber // 入力・出力進数が大きすぎるエラー
 }
 
 //n進数からn進数にするコード
