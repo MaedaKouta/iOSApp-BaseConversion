@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ProViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet private weak var beforeBaseNumberTextField: UITextField!
     @IBOutlet private weak var afterBaseNumberTextField: UITextField!
@@ -45,7 +45,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         var result = ""
 
         guard let beforeNumber = beforeNumberTextField.text, let _ = beforeBaseNumber, let _ = afterBaseNumber  else {
-            print("wrong")
+            presentAleart(title: "エラー", message: "入力された値が大きすぎます。", actionTitle: "了解")
             return
         }
 
@@ -53,23 +53,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             try result = transition.transitionProMode(fromBase: beforeBaseNumber, toBase: afterBaseNumber, beforeNum: beforeNumber)
             afterNumberLabel.text = result
         } catch {
-            print("失敗した")
+            presentAleart(title: "エラー", message: "入力された値が大きすぎます。", actionTitle: "了解")
         }
 
     }
-
-    //クリップボードにコピー
-    @IBAction private func didTapCopyButton(_ sender: Any) {
-        if(afterNumberLabel.text?.isEmpty == false){
-            UIPasteboard.general.string = afterNumberLabel.text
-            //copyClearLabel.text = "クリップボードにコピーしました"
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                //self.copyClearLabel.fadeTransition(0.5)
-                //self.copyClearLabel.text = ""
-            }
-        }
-    }
-
 
     private func setBeforePickerView() {
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
@@ -120,9 +107,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
 
+    private func presentAleart(title: String, message: String, actionTitle: String) {
+
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        let ok = UIAlertAction(title: actionTitle, style: .cancel) { (acrion) in
+        }
+
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
+    }
+
 }
 
-extension ViewController : UIPickerViewDelegate, UIPickerViewDataSource {
+extension ProViewController : UIPickerViewDelegate, UIPickerViewDataSource {
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

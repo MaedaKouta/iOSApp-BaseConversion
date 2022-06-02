@@ -98,18 +98,6 @@ class SimpleViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
 
-/*
-    @IBAction private func changeTextField(_ sender: Any) {
-        let text = inputNumberTextField.text ?? ""
-        let trimmedText = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        if trimmedText.isEmpty {
-            transitionButton.isEnabled = false
-        } else {
-            transitionButton.isEnabled = true
-        }
-    }
-*/
-
     //キーボードを閉じる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.view.endEditing(true)
