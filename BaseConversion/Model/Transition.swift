@@ -10,21 +10,13 @@ import Foundation
 enum TransitionError : Error {
     case WrongInputBase  // 入力進数が間違えているエラー
     case OverNumber // 入力・出力進数が大きすぎるエラー
+    case SomethingWrong // どこかが失敗したエラー
 }
 
 //n進数からn進数にするコード
 class Transition{
 
-    func transitionProMode(fromBase:Int, toBase:Int, beforeNum:String) throws -> String {
-        if fromBase<2 || 36<fromBase || toBase<2 || 36<toBase {
-            throw NSError(domain: "bigNum", code: -1, userInfo: nil)
-        } else if Int(beforeNum, radix: fromBase) == nil {
-            throw NSError(domain: "bigNum", code: -1, userInfo: nil)
-        }
-
-        return String(Int(beforeNum, radix: fromBase)!, radix:toBase)
-    }
-
+    // シンプルモードから呼び出される関数
     func transitionSimpleMode(fromBase: Int, beforeNumber: String) throws -> [String] {
 
         // 入力された進数を適切に入力されているか判定
@@ -71,6 +63,18 @@ class Transition{
         let base16String = String(Int(beforeNumber, radix: fromBase)!, radix:16)
 
         return [base2String, base8String, base10String, base16String]
+    }
+
+    // プロモードから呼び出される関数
+    func transitionProMode(fromBase:Int, toBase:Int, beforeNum:String) throws -> String {
+
+        if fromBase<2 || 36<fromBase || toBase<2 || 36<toBase {
+            throw TransitionError.SomethingWrong
+        } else if Int(beforeNum, radix: fromBase) == nil {
+            throw TransitionError.WrongInputBase
+        }
+
+        return String(Int(beforeNum, radix: fromBase)!, radix:toBase)
     }
 
 }

@@ -65,13 +65,10 @@ class SettingTableViewController: UITableViewController {
     private func shareApp() {
         // TODO: 文字を考える
         let shareText = """
-        今まで無かったToDoアプリ
-        「Swipe ToDo」
+        進数計算アプリ
+        「進数計算」
 
-        スワイプでToDoを消費。
-        グラフでモチベーション管理。
-        まさに、
-        途中で挫折しないToDoアプリ
+        シンプルに進数を計算することが出来ます
         """
 
         let activityItems = [shareText] as [Any]

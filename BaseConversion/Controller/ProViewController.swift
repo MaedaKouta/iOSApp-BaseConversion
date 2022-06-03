@@ -11,7 +11,7 @@ class ProViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet private weak var beforeBaseNumberTextField: UITextField!
     @IBOutlet private weak var afterBaseNumberTextField: UITextField!
-    @IBOutlet private weak var beforeNumberTextField: UITextField!
+    @IBOutlet private weak var inputNumberTextField: UITextField!
     @IBOutlet private weak var afterNumberLabel: UILabel!
     @IBOutlet private weak var convertButton: UIButton!
     @IBOutlet private weak var afterBaseNumberView: UIView!
@@ -40,22 +40,33 @@ class ProViewController: UIViewController, UITextFieldDelegate {
 
         beforeBaseNumberTextField.keyboardType = UIKeyboardType.numberPad
         afterBaseNumberTextField.keyboardType = UIKeyboardType.numberPad
-        beforeNumberTextField.keyboardType = UIKeyboardType.numbersAndPunctuation
+        inputNumberTextField.keyboardType = UIKeyboardType.numbersAndPunctuation
     }
 
     @IBAction private func didTapConvertButton(_ sender: Any) {
         var result = ""
 
-        guard let beforeNumber = beforeNumberTextField.text, let _ = beforeBaseNumber, let _ = afterBaseNumber  else {
-            presentAleart(title: "エラー", message: "入力された値が大きすぎます。", actionTitle: "了解")
+        // textFieldに値が入っているかの判定
+        let inputBase = inputNumberTextField.text ?? ""
+        let trimmedText = inputBase.trimmingCharacters(in: .whitespacesAndNewlines)
+        if trimmedText.isEmpty == true {
+            afterNumberLabel.text = ""
+            presentAleart(title: "エラー", message: "値が入力されていません。", actionTitle: "了解")
+            return
+        }
+
+        guard let _ = beforeBaseNumber, let _ = afterBaseNumber  else {
+            afterNumberLabel.text = ""
+            presentAleart(title: "エラー", message: "進数が選択されていません。", actionTitle: "了解")
             return
         }
 
         do {
-            try result = transition.transitionProMode(fromBase: beforeBaseNumber, toBase: afterBaseNumber, beforeNum: beforeNumber)
+            try result = transition.transitionProMode(fromBase: beforeBaseNumber, toBase: afterBaseNumber, beforeNum: inputBase)
             afterNumberLabel.text = result
         } catch {
-            presentAleart(title: "エラー", message: "入力された値が大きすぎます。", actionTitle: "了解")
+            afterNumberLabel.text = ""
+            presentAleart(title: "エラー", message: "値が大きすぎるか、値が間違えています。", actionTitle: "了解")
         }
 
     }
@@ -86,7 +97,6 @@ class ProViewController: UIViewController, UITextFieldDelegate {
 
         pickerView.selectRow(0, inComponent: 0, animated: false)
     }
-
 
     @objc private func didTapBeforePickerDoneButton() {
         beforeBaseNumberTextField.endEditing(true)
