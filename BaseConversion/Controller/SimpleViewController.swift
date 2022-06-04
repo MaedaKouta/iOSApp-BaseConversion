@@ -48,7 +48,41 @@ class SimpleViewController: UIViewController {
         transitionButton.layer.cornerRadius = 40
     }
 
+    @IBAction func didChangeSegmentedControll(_ sender: Any) {
+        switch baseSegmentedControl.selectedSegmentIndex {
+        case 0:
+            if inputNumberTextField.keyboardType != .numberPad {
+                inputNumberTextField.endEditing(true)
+                inputNumberTextField.keyboardType = .numberPad
+            }
+            inputNumberTextField.becomeFirstResponder()
+        case 1:
+            if inputNumberTextField.keyboardType != .numberPad {
+                inputNumberTextField.endEditing(true)
+                inputNumberTextField.keyboardType = .numberPad
+            }
+            inputNumberTextField.becomeFirstResponder()
+        case 2:
+            if inputNumberTextField.keyboardType != .numberPad {
+                inputNumberTextField.endEditing(true)
+                inputNumberTextField.keyboardType = .numberPad
+            }
+            inputNumberTextField.becomeFirstResponder()
+        case 3:
+            if inputNumberTextField.keyboardType != .default {
+                inputNumberTextField.endEditing(true)
+                inputNumberTextField.keyboardType = UIKeyboardType.numbersAndPunctuation
+            }
+            inputNumberTextField.becomeFirstResponder()
+        default:
+            inputNumberTextField.keyboardType = UIKeyboardType.numbersAndPunctuation
+        }
+
+    }
+
+
     @IBAction private func didTapTransitionButton(_ sender: UIButton) {
+        inputNumberTextField.endEditing(true)
         let base = [2, 8, 10, 16]
         let baseIndex = baseSegmentedControl.selectedSegmentIndex
 
