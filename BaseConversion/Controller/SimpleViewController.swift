@@ -79,7 +79,6 @@ class SimpleViewController: UIViewController {
 
     }
 
-
     @IBAction private func didTapTransitionButton(_ sender: UIButton) {
         let base = [2, 8, 10, 16]
         let baseIndex = baseSegmentedControl.selectedSegmentIndex

@@ -44,6 +44,9 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="didChangeTextField:" destination="BYZ-38-t0r" eventType="editingChanged" id="Mpt-F6-X4I"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntN-su-oo3">
                                 <rect key="frame" x="40" y="278" width="310" height="50"/>
@@ -89,6 +92,22 @@
                                     <constraint firstAttribute="height" constant="35" id="y2S-tf-6bo"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Y0-wd-Zsx">
+                                <rect key="frame" x="330" y="208" width="30" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="GWD-Ih-Jnq"/>
+                                    <constraint firstAttribute="width" constant="30" id="dtx-fZ-kRO"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <imageReference key="image" image="xmark.circle" catalog="system" symbolScale="medium"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapDeleteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="73K-V3-NRh"/>
+                                    <action selector="didTapDeleteButton:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="CDG-TX-v1w"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -98,6 +117,7 @@
                             <constraint firstItem="sFy-9W-3zj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Bw2-r5-1IJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ntN-su-oo3" secondAttribute="trailing" constant="40" id="HhA-lP-W7N"/>
                             <constraint firstItem="md8-o4-hfH" firstAttribute="leading" secondItem="sFy-9W-3zj" secondAttribute="trailing" constant="2" id="HnE-Xx-ku4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2Y0-wd-Zsx" secondAttribute="trailing" constant="30" id="Jb2-wH-aBa"/>
                             <constraint firstItem="ntN-su-oo3" firstAttribute="top" secondItem="KJf-KW-GzD" secondAttribute="bottom" constant="35" id="MkR-Zl-6EL"/>
                             <constraint firstItem="rLU-fB-5XP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="SE3-Nq-da7"/>
                             <constraint firstItem="rLU-fB-5XP" firstAttribute="top" secondItem="ntN-su-oo3" secondAttribute="bottom" constant="50" id="TKU-Y3-Mz1"/>
@@ -108,6 +128,7 @@
                             <constraint firstItem="iqp-BQ-d7d" firstAttribute="leading" secondItem="md8-o4-hfH" secondAttribute="trailing" constant="2" id="qjy-ps-cg0"/>
                             <constraint firstItem="iqp-BQ-d7d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="65" id="v14-Tg-Xw6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KJf-KW-GzD" secondAttribute="trailing" constant="25" id="vUG-uQ-NDf"/>
+                            <constraint firstItem="2Y0-wd-Zsx" firstAttribute="top" secondItem="iqp-BQ-d7d" secondAttribute="bottom" constant="20" id="whM-e9-rlh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rLU-fB-5XP" secondAttribute="trailing" constant="30" id="y2R-Nv-yeW"/>
                             <constraint firstItem="KJf-KW-GzD" firstAttribute="top" secondItem="iqp-BQ-d7d" secondAttribute="bottom" constant="20" id="zmG-Qh-kdY"/>
                         </constraints>
@@ -126,6 +147,7 @@
                         <outlet property="afterNumberLabel" destination="mQw-6E-IWk" id="MrV-SZ-Cbm"/>
                         <outlet property="beforeBaseNumberTextField" destination="sFy-9W-3zj" id="ZSl-XE-sPo"/>
                         <outlet property="convertButton" destination="ntN-su-oo3" id="ChA-Wa-7b7"/>
+                        <outlet property="deleteButton" destination="2Y0-wd-Zsx" id="gLg-SI-Whm"/>
                         <outlet property="inputNumberTextField" destination="KJf-KW-GzD" id="ikN-zJ-Z6L"/>
                     </connections>
                 </viewController>
@@ -708,7 +730,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JdA-Dq-tcb"/>
+        <segue reference="Voy-wB-Nlm"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="98"/>

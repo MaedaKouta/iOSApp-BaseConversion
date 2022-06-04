@@ -15,6 +15,7 @@ class ProViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var afterNumberLabel: UILabel!
     @IBOutlet private weak var convertButton: UIButton!
     @IBOutlet private weak var afterBaseNumberView: UIView!
+    @IBOutlet private weak var deleteButton: UIButton!
 
     private let baseLists = Array(2...36)
     private var beforeBaseNumber:Int!
@@ -30,13 +31,13 @@ class ProViewController: UIViewController, UITextFieldDelegate {
         pickerView.dataSource = self
         setAfterPickerView()
         setBeforePickerView()
+        deleteButton.isEnabled = false
         beforeBaseNumberTextField.inputView = pickerView
         afterBaseNumberTextField.inputView = pickerView
 
         afterBaseNumberView.layer.borderWidth = 1.0
         afterBaseNumberView.layer.borderColor = UIColor.systemGray.cgColor
         afterBaseNumberView.layer.cornerRadius = 3
-        //afterBaseNumberView.isHidden = false
 
         beforeBaseNumberTextField.keyboardType = UIKeyboardType.numberPad
         afterBaseNumberTextField.keyboardType = UIKeyboardType.numberPad
@@ -70,6 +71,22 @@ class ProViewController: UIViewController, UITextFieldDelegate {
             presentAleart(title: "エラー", message: "値が大きすぎるか、値が間違えています。", actionTitle: "了解")
         }
 
+    }
+
+    @IBAction private func didTapDeleteButton(_ sender: Any) {
+        inputNumberTextField.text = ""
+        afterNumberLabel.text = ""
+        deleteButton.isEnabled = false
+    }
+
+    @IBAction private func didChangeTextField(_ sender: Any) {
+        let text = inputNumberTextField.text ?? ""
+        let trimmedText = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        if trimmedText.isEmpty {
+            deleteButton.isEnabled = false
+        } else {
+            deleteButton.isEnabled = true
+        }
     }
 
     private func setBeforePickerView() {
