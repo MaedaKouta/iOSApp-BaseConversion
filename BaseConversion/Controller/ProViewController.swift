@@ -44,6 +44,7 @@ class ProViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction private func didTapConvertButton(_ sender: Any) {
+        inputNumberTextField.endEditing(true)
         var result = ""
 
         // textFieldに値が入っているかの判定
