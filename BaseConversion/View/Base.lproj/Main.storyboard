@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -282,7 +283,24 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="didChangeTextField:" destination="1ZI-gP-gTB" eventType="editingChanged" id="qey-MP-NP7"/>
+                                        </connections>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fe-Wj-ZX6">
+                                        <rect key="frame" x="330" y="51" width="30" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="MIq-LB-foj"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="">
+                                            <imageReference key="image" image="xmark.circle" catalog="system" symbolScale="medium"/>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="didTapDeleteButton:" destination="1ZI-gP-gTB" eventType="touchUpInside" id="rdc-4w-ZZt"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -293,6 +311,7 @@
                                     <constraint firstItem="3vg-EZ-JsF" firstAttribute="leading" secondItem="weQ-qp-dSk" secondAttribute="leading" constant="40" id="E2M-q3-aHx"/>
                                     <constraint firstItem="dGE-D4-yD7" firstAttribute="leading" secondItem="weQ-qp-dSk" secondAttribute="leading" constant="35" id="Ey2-bG-UiN"/>
                                     <constraint firstItem="Keo-CL-V0Z" firstAttribute="leading" secondItem="weQ-qp-dSk" secondAttribute="leading" constant="30" id="Gh3-7d-uIt"/>
+                                    <constraint firstItem="7fe-Wj-ZX6" firstAttribute="top" secondItem="fpl-Rm-QxA" secondAttribute="bottom" constant="20" id="J9J-IG-5gO"/>
                                     <constraint firstItem="E6S-jv-iTZ" firstAttribute="leading" secondItem="weQ-qp-dSk" secondAttribute="leading" constant="30" id="JOk-rq-SuJ"/>
                                     <constraint firstItem="nDN-Hn-Qsd" firstAttribute="leading" secondItem="weQ-qp-dSk" secondAttribute="leading" constant="20" id="MMd-1k-vrh"/>
                                     <constraint firstItem="TMz-75-AdI" firstAttribute="top" secondItem="fpl-Rm-QxA" secondAttribute="bottom" constant="20" id="Mg0-tf-E9r"/>
@@ -301,23 +320,25 @@
                                     <constraint firstAttribute="trailing" secondItem="qHO-Mt-hFP" secondAttribute="trailing" constant="30" id="S4M-jb-RmI"/>
                                     <constraint firstItem="fpl-Rm-QxA" firstAttribute="top" secondItem="weQ-qp-dSk" secondAttribute="top" id="SkP-Gy-lTw"/>
                                     <constraint firstItem="qHO-Mt-hFP" firstAttribute="leading" secondItem="weQ-qp-dSk" secondAttribute="leading" constant="30" id="YOD-2G-X4R"/>
+                                    <constraint firstAttribute="trailing" secondItem="TMz-75-AdI" secondAttribute="trailing" constant="25" id="YOT-9a-adF"/>
                                     <constraint firstItem="TMz-75-AdI" firstAttribute="leading" secondItem="weQ-qp-dSk" secondAttribute="leading" constant="25" id="ZYP-xO-mDc"/>
                                     <constraint firstItem="dGE-D4-yD7" firstAttribute="top" secondItem="weQ-qp-dSk" secondAttribute="top" constant="5" id="e3e-VU-JIb"/>
                                     <constraint firstAttribute="trailing" secondItem="E6S-jv-iTZ" secondAttribute="trailing" constant="30" id="fTa-uO-ZgS"/>
                                     <constraint firstAttribute="trailing" secondItem="3vg-EZ-JsF" secondAttribute="trailing" constant="40" id="gO2-BZ-Ktu"/>
+                                    <constraint firstItem="3vg-EZ-JsF" firstAttribute="top" secondItem="7fe-Wj-ZX6" secondAttribute="bottom" constant="30" id="h5t-gM-ktk"/>
                                     <constraint firstItem="O25-PJ-CfP" firstAttribute="top" secondItem="jDR-N9-W0F" secondAttribute="bottom" constant="3" id="hyk-Er-bfl"/>
                                     <constraint firstItem="jDR-N9-W0F" firstAttribute="leading" secondItem="weQ-qp-dSk" secondAttribute="leading" constant="20" id="jmk-lB-w01"/>
                                     <constraint firstItem="nDN-Hn-Qsd" firstAttribute="top" secondItem="qHO-Mt-hFP" secondAttribute="bottom" constant="20" id="me7-Hl-xqU"/>
                                     <constraint firstItem="s2c-so-a4l" firstAttribute="leading" secondItem="weQ-qp-dSk" secondAttribute="leading" constant="20" id="mqY-Zt-TUP"/>
                                     <constraint firstItem="3vg-EZ-JsF" firstAttribute="top" secondItem="TMz-75-AdI" secondAttribute="bottom" constant="30" id="p45-zF-tIl"/>
                                     <constraint firstItem="g55-aU-DSO" firstAttribute="top" secondItem="3vg-EZ-JsF" secondAttribute="bottom" constant="40" id="rEk-fp-54G"/>
+                                    <constraint firstAttribute="trailing" secondItem="7fe-Wj-ZX6" secondAttribute="trailing" constant="30" id="sOR-Oz-YpW"/>
                                     <constraint firstAttribute="trailing" secondItem="O25-PJ-CfP" secondAttribute="trailing" constant="30" id="tKE-Pp-6gN"/>
                                     <constraint firstAttribute="trailing" secondItem="fpl-Rm-QxA" secondAttribute="trailing" constant="20" id="ubl-3z-cZ7"/>
                                     <constraint firstItem="E6S-jv-iTZ" firstAttribute="top" secondItem="nDN-Hn-Qsd" secondAttribute="bottom" constant="3" id="vHj-P8-xmF"/>
                                     <constraint firstAttribute="trailing" secondItem="Keo-CL-V0Z" secondAttribute="trailing" constant="30" id="wbs-FI-5Lg"/>
                                     <constraint firstItem="jDR-N9-W0F" firstAttribute="top" secondItem="E6S-jv-iTZ" secondAttribute="bottom" constant="20" id="yq4-Px-3ke"/>
                                     <constraint firstItem="fpl-Rm-QxA" firstAttribute="leading" secondItem="dGE-D4-yD7" secondAttribute="trailing" constant="20" id="z3G-fG-atB"/>
-                                    <constraint firstAttribute="trailing" secondItem="TMz-75-AdI" secondAttribute="trailing" constant="25" id="zqc-PW-fVc"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -343,6 +364,7 @@
                         <outlet property="base2View" destination="qHO-Mt-hFP" id="TP5-y2-rxY"/>
                         <outlet property="base8View" destination="E6S-jv-iTZ" id="v15-zO-aac"/>
                         <outlet property="baseSegmentedControl" destination="fpl-Rm-QxA" id="210-CA-Nu8"/>
+                        <outlet property="deleteButton" destination="7fe-Wj-ZX6" id="v4r-L9-cVL"/>
                         <outlet property="inputNumberTextField" destination="TMz-75-AdI" id="5uu-Y5-QNx"/>
                         <outlet property="transitionButton" destination="3vg-EZ-JsF" id="Ve5-GI-LnQ"/>
                         <outletCollection property="answerTextLabels" destination="ewT-aE-n2I" collectionClass="NSMutableArray" id="0Cf-6P-GvM"/>
@@ -686,7 +708,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Voy-wB-Nlm"/>
+        <segue reference="JdA-Dq-tcb"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
@@ -695,6 +717,7 @@
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="hare.fill" catalog="system" width="128" height="91"/>
         <image name="tortoise.fill" catalog="system" width="128" height="66"/>
+        <image name="xmark.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

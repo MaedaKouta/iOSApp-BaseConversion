@@ -18,12 +18,14 @@ class SimpleViewController: UIViewController {
     @IBOutlet private weak var base8View: UIView!
     @IBOutlet private weak var base10View: UIView!
     @IBOutlet private weak var base16View: UIView!
+    @IBOutlet private weak var deleteButton: UIButton!
 
     private var resultNumberStringArray: [String] = ["", "", "", ""]
     private var transition = Transition()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        deleteButton.isEnabled = false
         inputNumberTextField.keyboardType = .numberPad
         base2View.layer.borderWidth = 1.0
         base2View.layer.borderColor = UIColor.systemGray.cgColor
@@ -42,9 +44,6 @@ class SimpleViewController: UIViewController {
         answerTextLabels[2].adjustsFontSizeToFitWidth = true
         answerTextLabels[3].adjustsFontSizeToFitWidth = true
 
- 
-        //transitionButton.layer.borderWidth = 1.0
-        //transitionButton.layer.borderColor = UIColor.systemGray.cgColor
         transitionButton.layer.cornerRadius = 40
     }
 
@@ -82,7 +81,6 @@ class SimpleViewController: UIViewController {
 
 
     @IBAction private func didTapTransitionButton(_ sender: UIButton) {
-        inputNumberTextField.endEditing(true)
         let base = [2, 8, 10, 16]
         let baseIndex = baseSegmentedControl.selectedSegmentIndex
 
@@ -97,7 +95,7 @@ class SimpleViewController: UIViewController {
 
         do {
             try resultNumberStringArray = transition.transitionSimpleMode(fromBase: base[baseIndex], beforeNumber: String(trimmedText))
-            print(resultNumberStringArray)
+            inputNumberTextField.endEditing(true)
         } catch {
             makeLabelBlank()
             if error as? TransitionError == TransitionError.WrongInputBase {
@@ -106,13 +104,27 @@ class SimpleViewController: UIViewController {
             if error as? TransitionError == TransitionError.OverNumber {
                 presentAleart(title: "エラー", message: "入力された値が大きすぎます。", actionTitle: "了解")
             }
-            print(error)
-            //presentAleart(title: "エラー", message: "値が大きすぎて変換できませんでした。", actionTitle: "了解")
         }
         for i in 0..<resultNumberStringArray.count {
             answerTextLabels[i].text = resultNumberStringArray[i]
         }
 
+    }
+
+    @IBAction private func didChangeTextField(_ sender: Any) {
+        let text = inputNumberTextField.text ?? ""
+        let trimmedText = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        if trimmedText.isEmpty {
+            deleteButton.isEnabled = false
+        } else {
+            deleteButton.isEnabled = true
+        }
+    }
+
+    @IBAction private func didTapDeleteButton(_ sender: Any) {
+        makeLabelBlank()
+        inputNumberTextField.text = ""
+        deleteButton.isEnabled = false
     }
 
     private func makeLabelBlank() {
